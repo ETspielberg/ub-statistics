@@ -1,0 +1,53 @@
+<components>
+<title>
+csv-Upload
+</title>
+<description>
+<p>Über den unteren Bereich der Porfil-Übersichtsseite können csv-Datein hochgeladen und anschließend die enthaltenen Auflagen analysiert werden.</p>
+</description>
+<sections>
+<section>
+<title>
+Der Upload
+</title>
+<figures>
+<figure>
+<file>
+csvUploadSuccess.PNG
+</file>
+<caption>
+Erfolgreicher Upload einer csv-Datei.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>Zieht man eine csv-Datei in das Upload-Fenster (oder klickt in das Fenster) so wird die entsprechende Datei auf den Server hochgeladen. Nach der Aktualisierung der Seite steht die entsprechende Datei in der Liste zur Verüfung.</p>
+	<p>Mittels des grünen Buttons "zur Liste" wird diese Liste eingelesen. Der FachRef-Assistent erkennt dann die Spalte, die mit "ADM*" überschrieben ist und extrahiert die entsprechenden Systemnummern. Anschließend werden für diese Auflagen die Exemplare und Vorgänge abgerufen und eine Analyse gemäß den Parametern für das "csv-Profil" durchgeführt.</p>
+	<p>Über den Button mit dem roten "X" können die Dateien wieder vom server gelöscht werden.</p>
+</description>
+</section>
+<section>
+<title>
+Die Liste
+</title>
+<figures>
+<figure>
+<file>
+csvUploadList.PNG
+</file>
+<caption>
+Aus einer cs-Datei erhaltene Aussonderungsliste.
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Die erhaltene Liste entspricht den Listen, die aus den Profilen für die Aussonderung erhalten werden.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

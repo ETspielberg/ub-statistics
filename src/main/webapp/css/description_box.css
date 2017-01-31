@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+
+span.description {
+    position: absolute;
+    display: none;
+    background: #ccc;
+    border: 1px solid;
+}
+
+span.validate-error {
+	color: red;
+	font-weight: bold;
+}
+
+input.has-error {
+	border-color: red;
+}
+
+span.links {
+  padding: 0px 5px;
+}
+
+div.screenshot {
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	text-align: center;
+	margin-bottom: 25px;
+	box-shadow: 10px 10px 5px #888888;
+	padding: 15px 15px 15px 15px;
+}
+
+div.caption {
+	font-size: 125%;
+	margin-top: 5px;
+	font-style: italic;
+	font-weight: bold;
+}

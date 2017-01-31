@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <title>Nutzereinstellungen</title>
+    
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript"> jQuery.noConflict(); </script>
+    <script src="../../js/ie-emulation-modes-warning.js"></script>
+    <script src="../../js/ie10-viewport-bug-workaround.js"></script>
+			
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <link href="../../css/dashboard.css" rel="stylesheet" />
+    <link rel="icon" href="/../..img/favicon.ico"/>
+  </head>
+  <body> 
+  			<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+								aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../start">FachRef-Assistent </a>
+							<a class="navbar-brand" href="../hitlists">:: Hitlisten </a>
+							<a class="navbar-brand" href="#">:: Bearbeiten </a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="../hitlists">Zurück</a>
+								</li>
+							</ul>
+						</div><!--/.navbar-collapse -->
+					</div>
+				</nav>
+	<h1>Neuer Benachrichtungsdienst</h1>
+    <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
+    <xed:source uri="file:///{$ub.statistics.userDir}/{$username}/alert/{$id}.xml" />
+    <xed:cancel url="/fachref/hitlists" />
+	  <xed:bind xpath="/alertingService">
+	  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	    <h2 class="sub-header">Angaben zum Bereich</h2>
+          	   <div class="col-md-12">
+		  		 <xed:bind xpath="name">
+            		<div class="form-group">
+              			<label class="col-md-3 control-label" for="name">
+              				<xed:output i18n="editor.label.name" />
+              			</label>
+              			<div class="col-md-9">
+                			<input id="name" placeholder="{i18n:editor.placeholder.name}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+		       <div class="col-md-12">
+		        <xed:bind xpath="subjectID">
+		          <div class="form-group">
+                    <label class="col-md-3 control-label" for="subject">
+                      <xed:output i18n="editor.label.subject" />
+                    </label>
+                    <div class="col-md-9">
+                      <select id="subject" class="form-control">
+                  <option value="">keine Angabe</option>
+                  <option value="01">Allgemeines</option>
+                  <option value="04">Sprach- und Literaturwissenschaften</option>
+                  <option value="07">Germanistik</option>
+                  <option value="10">Anglistik</option>
+                  <option value="13">Romanistik</option>
+                  <option value="16">sonstige Philologien</option>
+                  <option value="19">Philosophie</option>
+                  <option value="22">Psychologie</option>
+                  <option value="25">Erziehungswissenschaften</option>
+                  <option value="28">Theologie</option>
+                  <option value="31">Autoren GW</option>
+                  <option value="34">Kunstwissenschaften</option>
+                  <option value="34">Medienwissenschaften</option>
+                  <option value="37">Sportwissenschaften</option>
+                  <option value="40">Geschichte</option>
+                  <option value="43">Geowissenschaften</option>
+                  <option value="46a">Sozialwissenschaften </option>
+                  <option value="46b">Soziologie </option>
+                  <option value="46c">Politikwissenschaften </option>
+                  <option value="49">Wirtschaftswissenschaften </option>
+                  <option value="52">Rechtswissenscahften </option>
+                  <option value="55">Land- und Forstwissenschaften</option>
+                  <option value="58">Naturwissenschaften</option>
+                  <option value="61">Mathematik </option>
+                  <option value="64">Informatik </option>
+                  <option value="67">Physik </option>
+                  <option value="70">Chemie </option>
+                  <option value="73">Astronomie </option>
+                  <option value="75">Biologie </option>
+                  <option value="77">Fachbibliothek Medizin</option>
+                  <option value="77a">Medizin </option>
+                  <option value="79">Technik allgemein</option>
+                  <option value="82">Bauingenieurwesen </option>
+                  <option value="85">Maschinenbau</option>
+                  <option value="88">Elektrotechnik </option>
+                  <option value="91">Sonstige Gebiete der Technik </option>
+                  <option value="94">Turkistik </option>
+                  <option value="99">Sonderstandorte</option>
+                </select>
+                    </div>
+				   </div>
+                </xed:bind>
+			   </div>
+			   <div class="col-md-12">
+		  		 <xed:bind xpath="notationRange">
+            		<div class="form-group">
+              			<label class="col-md-3 control-label" for="notationRange">
+              				<xed:output i18n="editor.label.notationRange" />
+              			</label>
+              			<div class="col-md-9">
+                			<input id="notationRange" placeholder="{i18n:editor.placeholder.notationRange}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+			   <div class="col-md-12">
+			   <h2>Alert - Service</h2>
+			   <p>Der Alert-Service überprüft jede Nacht die Vormerkungen in diesem Systembereich und schickt eine E-Mail, falls die eingestellten Schwellenwerte überschritten werden.</p>
+			   <xed:bind xpath="alerting">
+			     <div class="col-md-2">
+				   <xed:bind xpath="performAlert">
+                        <select id="performAlert" class="form-control">
+                          <option value="true">Aktiv</option>
+                          <option value="false">Inaktiv</option>
+                        </select>
+                  </xed:bind>
+			    </div>
+				<div class="col-md-5">
+		  		 <xed:bind xpath="thresholdQuotient">
+            		<div class="form-group">
+              			<label class="col-md-4 control-label" for="thresholdQuotient">
+              				<xed:output i18n="editor.label.thresholdQuotient" />
+              			</label>
+              			<div class="col-md-8">
+                			<input id="thresholdQuotient" placeholder="{i18n:editor.placeholder.thresholdQuotient}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+				  <div class="col-md-5">
+		  		 <xed:bind xpath="thresholdDuration">
+            		<div class="form-group">
+              			<label class="col-md-4 control-label" for="thresholdDuration">
+              				<xed:output i18n="editor.label.thresholdDuration" />
+              			</label>
+              			<div class="col-md-8">
+                			<input id="thresholdDuration" placeholder="{i18n:editor.placeholder.thresholdDuration}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+			   </xed:bind>
+			   </div>
+			   <div class="col-md-12">
+			   <h2>Reader - Service</h2>
+			   <p>Der Reader-Service sammelt ebenfalls den nächtlichen Stand und stellt alle Einträge oberhalb eines Schwellenwertes in einer Tabelle zusammen.
+			   Dieser Schwellenwert ist im Allgemeinen geringer als bei dem Alerting-Dienst.
+			   Zu festgelegten Zeiten wird der Fachreferent über die Anzahl neuer Einträge informiert.</p>
+			   
+			   <xed:bind xpath="reader">
+			     <div class="col-md-2">
+				   <xed:bind xpath="performReader">
+                        <select id="performReader" class="form-control">
+                          <option value="true">Aktiv</option>
+                          <option value="false">Nicht aktiv</option>
+                        </select>
+                  </xed:bind>
+			    </div>
+				<div class="col-md-5">
+		  		 <xed:bind xpath="thresholdQuotient">
+            		<div class="form-group">
+              			<label class="col-md-4 control-label" for="thresholdQuotient">
+              				<xed:output i18n="editor.label.thresholdQuotient" />
+              			</label>
+              			<div class="col-md-8">
+                			<input id="thresholdQuotient" placeholder="{i18n:editor.placeholder.thresholdQuotient}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+				 <div class="col-md-5">
+		  		 <xed:bind xpath="thresholdDuration">
+            		<div class="form-group">
+              			<label class="col-md-4 control-label" for="thresholdDuration">
+              				<xed:output i18n="editor.label.thresholdDuration" />
+              			</label>
+              			<div class="col-md-8">
+                			<input id="thresholdDuration" placeholder="{i18n:editor.placeholder.thresholdDuration}" class="form-control input-md" type="text" />
+              			</div>
+            		</div>
+          		</xed:bind>
+              </div>
+		   </xed:bind>
+		 </div>
+		</div>
+		 <div class="form-group">
+		 	<input name="performAlert" type="hidden" value="{$performAlert}" />
+		 	<input name="performReader" type="hidden" value="{$performReader}" />
+		 	<label class="col-md-2 control-label" for="save"></label>
+            <div class="col-md-8">
+              <button id="save" class="btn-lg btn-success" type="submit" xed:target="servlet" xed:href="AlertDefine" >
+                <xed:output i18n="common.button.save" />
+              </button>
+              <input name="id" type="hidden" value="{$id}" />
+			  <button id="cancel" class="btn-lg btn-danger" type="submit" xed:target="cancel">
+			  <xed:output i18n="common.button.cancel" />
+			  </button>
+			  </div>
+          </div>
+		</xed:bind>
+    </xed:form>
+  </body>
+</html>

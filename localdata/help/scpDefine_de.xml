@@ -1,0 +1,107 @@
+<components>
+<title>
+Die Profil-Definition
+</title>
+<description>
+<p>Über dieses Formualr werden die Profile definiert. Es gliedert sich in drei Bereiche</p>
+<ul>
+<li>Angaben zum Bereich</li>
+<li>Parameter zur Ausleihenanalyse</li>
+<li>Parameter zur Vormerk-Analyse</li>
+</ul>
+</description>
+<sections>
+<section>
+<title>
+Angaben zum Bereich
+</title>
+<figures>
+<figure>
+<file>
+profiles_region.PNG
+</file>
+<caption>
+Eingabebereich für die Bereichsangaben.
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Zunächst muss ein Fachbereich ausgewählt werden. Es kann prinzipiell jeder Bereich gewählt werden, unabhängig davon, ob man als Fachreferent eingetragen ist oder nicht.</p>
+    <p> Anschließend kann dieser Fachbereich noch eingeschränkt werden. Dazu können entweder einzelne Systemstellen einegegeben werden ("AAA"), Bereiche (mit Bindestrich: "AAA-AAZ"), Listen (durch Kommata getrennt: "AAA,BBB,CCC") oder beliebeige Kombinationen ("AAA-AAZ, BBB,CCC-CCZ"). Dieses Feld kann aber auch leer bleiben.</p>
+	<p> Über das Eingabefeld "Standorte" kann nach Exemplarstandort gefiltert werden, nur diese Exemplare werden dann bei der Auswertung berücksichtigt. Beispiele:</p>
+    	<ul>
+    	<li> E33 nur Essen, Lehrbuchsammlung Fachbibliothek MNT</li>
+		<li> E3? nur Essen, Fachbibliothek MNT (? am Ende können auch weggelassen werden: E3)</li>
+    	<li> ??3 nur Lehrbuchsammlung in Essen oder Duisburg </li>
+    	<li> ??1 ??3 ??5 ??7 ??9 nur ausleihbare Exemplare </li>
+    	</ul>
+	<p> Über das Eingabefeld "Medienart" kann die Materialart ausgewählt werden, die analysiert wird.</p>
+	<p> Für jede gefundene Titelaufnahme (i.d.R. also für jede Auflage/jeden Nachdruck) wird ein separater Abschnitt ausgegeben. Ein Link zum OPAC zeigt den aktuellen Exemplarzustand im OPAC.</p>
+</description>
+</section>
+<section>
+<title>
+Parameter zur Ausleihenanalyse
+</title>
+<figures>
+<figure>
+<file>
+profiles_deletion.PNG
+</file>
+<caption>
+Eingabebereich für die Parameter für die Aussonderungsliste.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>In diesem Bereich werden die Parameter für die Aussonderungsanalysen definiert: </p>
+	<ul>
+	<li>Zeitraum für Aussonderung: Die Jahre, die rückwirkend für eine Beurteilung der Nutzungshäufigkeit berücksichtigt werden. Ausleihen vor diesem Zeitraum fließen nicht in die Berechnung der durchschnittlichen und maximalen Ausleihe mit ein.</li>
+	<li>fester Puffer: Anzahl der Exemplare, die zusätzlich zur maximalen Ausleihe im Bestand verbleiben. Wird eine Zahl von 1 oder größer gewählt, so werden diese Exemplare der maximalen Ausleihe hinzugezählt. Wird eine Zahl zwischen 0 und 1 angegeben, so wird der Anteil der überschüssigen Exemplare zurückbehalten. Gibt es beispielsweise 40 Exemplare und eine maximale Ausleihe von 25 so würden von den 15 überschüssigen Exemplaren entweder die entsprechende Anzahl direkt abgezogen (bei "3": 15 - 3 = 12), oder aber der entsprechende Anteil (bei "0.2": 15 * (1 - 0.2) =  12</li>
+	<li>variabler Puffer: Ähnlich dem festen Puffer, nur stellt der angegebene Wert einen Maximalwert dar. Zunächst wird das Verhältnis aus maximlaer Ausleihe und durchschnittlicher Ausleihe bestimmt, anschließend der angegebene Wert mit diesem Verhältnis multipliziert. Auf diese Art und Weise kann zusätzlich ein Nutzungsabhängiger Puffer abgezogen werden. </li>
+	<li>Mindestanzahl für Aussonderungen: Ist der berechnete Aussodnerungsvorschlag größer als dieser Wert, so wird der entsprechende Eintrag in die Liste mit aufgenommen. </li>
+	<li>Mindestjahre im Bestand: Eintäge werden nur in die Liste mit aufgenommen, wenn die entsprechende Auflage länger als die angegebene Zeit im Bestand ist. </li>
+	<li>Gruppierte Analyse: Wahl, ob verschiedene Auflagen eines Werkes als Gesamtheit betrachtet werden sollen oder jede Auflage für sich alleine. </li>
+	</ul>
+</description>
+</section>
+<section>
+<title>
+Parameter zur Vormerk-Analyse
+</title>
+<figures>
+<figure>
+<file>
+profiles_purchase.PNG
+</file>
+<caption>
+Eingabebereich für die Paramter für die Erwerbungsliste.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>In diesem Bereich werden die Parameter für die langfristige Vormerk-Analyse definiert: </p>
+	<ul>
+	<li>Zeitraum für Vormerkungen: Die Jahre, die rückwirkend für eine Beurteilung der Vormerkunghäufigkeit berücksichtigt werden. Vormerkungen vor diesem Zeitraum fließen nicht in die Analyse mit ein.</li>
+	<li>Mindesttage an Vormerkungen: Ist die durchschnittliche Dauer der Vormerkungen größer als dieser Wert, wird das entsprechende Werk mit in die Liste aufgenommen.</li>
+	</ul>
+</description>
+</section>
+<section>
+<title>
+Speichern oder Abbrechen
+</title>
+<description>
+	<p> Zuletzt muss das Profil über den Button "Speichern" gespeichert werden. Anschließend steht es in der Profilübersicht zur Verfügung. Über "Abbrechen" kommt man ohne zu Speichern auf die Übersichtsseite zurück.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Frank Lützenkirchen
+</author>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

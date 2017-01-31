@@ -1,0 +1,76 @@
+<components>
+<title>
+FachRef-Assistent Hilfe
+</title>
+<description>
+Hilfe zu den Modulen und Funktionen des Fachreferenten
+</description>
+<modules>
+<module>
+<name>
+protokoll
+</name>
+<title>
+Protokoll
+</title>
+<description>
+Das Protokoll gibt eine Übersicht über die Nutzung und den Bestand sowohl von einzelnen Auflagen oder über mehrere Auflagen hinweg. Außerdem können auf über das Protokoll nutzungsbasierte Aussonderungsvorschläge erstellt werden.
+</description>
+</module>
+<module>
+<name>
+profile
+</name>
+<title>
+Profile
+</title>
+<description>
+Die Profile stellen den Kernbereich der Bestandspflege dar. Von dieser Übersichtsseite hat man die Möglichkeit, für jeden Bereich ein einzelnes Profil anzuzlegen, csv-Dateien zu analysierem, sowie die Aussonderungs- und Erwerbungslisten anzusehen.
+</description>
+</module>
+<module>
+<name>
+hitlists
+</name>
+<title>
+Hitlisten
+</title>
+<description>
+Die Hitlisten bieten die Möglichkeit die tagesaktuellen Vormerk-Hitlisten für einzelne Systembereiche einzusehen und Benachrichtigungsdienste einzurichten. 
+</description>
+</module>
+<module>
+<name>
+eJournals
+</name>
+<title>
+e-Journals
+</title>
+<description>
+Dieses Modul bietet eine Reihe an Möglichkeiten um die Nutzung von Online-Zeitschriften abzurufen und zu analysieren. Zudem bestehen Übersichtsseiten mit den Inhalten von Zeitschriftenpaketen, der Zusammensetzung der Nutzung sowie einer Reihe an Kennzahlen.
+</description>
+</module>
+<module>
+<name>
+stock
+</name>
+<title>
+Bestand
+</title>
+<description>
+Dieses Modul bietet einen vergleichenden Überblick über die Nutzung, deren Zusammensetzung sowie Bestand und Bestandszusammensetzung für verschiedene Gruppen aus der Aufstellungssystematik.
+</description>
+</module>
+<module>
+<name>
+settings
+</name>
+<title>
+Einstellungen
+</title>
+<description>
+Dieses Modul bietet eine Reihe an persönlcihen Einstellungen an, mit denen die Funktionen und das Erscheinungsbild einiger Module abgepasst werden kann.
+</description>
+</module>
+</modules>
+</components>

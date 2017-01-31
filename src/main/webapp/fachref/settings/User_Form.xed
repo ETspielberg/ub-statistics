@@ -1,0 +1,183 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <title>Nutzereinstellungen</title>
+    
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript"> jQuery.noConflict(); </script>
+    <script src="../../js/ie-emulation-modes-warning.js"></script>
+    <script src="../../js/ie10-viewport-bug-workaround.js"></script>
+			
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <link href="../../css/dashboard.css" rel="stylesheet" />
+    <link rel="icon" href="/../..img/favicon.ico"/>
+  </head>
+  <body> 
+  			<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+								aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../start">FachRef-Assistent </a>
+							<a class="navbar-brand" href="#">::Einstellungen </a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="../fachref/start">Zurück</a>
+								</li>
+							</ul>
+						</div><!--/.navbar-collapse -->
+					</div>
+				</nav>
+    <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
+    <xed:source uri="file:///{$ub.statistics.userDir}/{$username}/user_data.xml" />
+	<xed:cancel url="/fachref/start" />
+	  <xed:bind xpath="/user">
+	  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	      <h2 class="sub-header">Angaben zur Person</h2>
+	      <p> Diese Angaben werden unter anderem verwendet, um E-Mails mit Aussonderungs- oder Erwerbungsvorschlägen zu generieren.</p>
+		<xed:bind xpath="details">
+          <div class="col-md-12">
+		  <xed:bind xpath="fullname">
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="fullname">
+              <xed:output i18n="editor.label.fullname" />
+              </label>
+              <div class="col-md-6">
+                <input id="fullname" placeholder="{i18n:editor.placeholder.fullname}" class="form-control input-md" type="text" />
+              </div>
+            </div>
+          </xed:bind>
+          </div>
+		  <div class="col-md-12">
+		  <xed:bind xpath="email" default="{$email}">
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="email">
+                <xed:output i18n="editor.label.email" />
+              </label>
+              <div class="col-md-6">
+                <input id="email" placeholder="{i18n:editor.placeholder.email}" class="form-control input-md" type="email" />
+              </div>
+            </div>
+          </xed:bind>
+         </div>
+         <p> Die folgende Zeitangabe beschreibt den Zeitraum, nachdem ein einmal bearbeitetes Werk von einer weiteren Analyse ausgeschlossen ist.</p>
+		<div class="col-md-12">
+		  <xed:bind xpath="interval" default="5">
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="interval">
+                <xed:output i18n="editor.label.interval" />
+              </label>
+              <div class="col-md-6">
+                <input id="interval" placeholder="{i18n:editor.placeholder.interval}" class="form-control input-md" type="text" />
+              </div>
+            </div>
+          </xed:bind>
+          </div>
+	    </xed:bind>
+		</div>
+	  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	    <h2 class="sub-header">Angaben zu Fächern</h2>
+	    <p> Bitte die eigenen Fächer und die Rolle (Referent oder Vertretung) auswählen. Mit Hilfe des Symbols "+" können Einträge hinzugefügt, mittels "-" Einträge entfernt werden. </p>
+	      <xed:bind xpath="subjects">
+	      <div class="col-md-10">
+	      
+		    <xed:repeat xpath="subject" min="1">
+		    <div class="form-group">
+                <label class="col-md-2 control-label" for="subject">
+                <xed:output i18n="editor.label.subject" />
+                </label>
+                <div class="col-md-4">
+                <select id="subject" class="form-control">
+                  <option value="01">Allgemeines</option>
+                  <option value="04">Sprach- und Literaturwissenschaften</option>
+                  <option value="07">Germanistik</option>
+                  <option value="10">Anglistik</option>
+                  <option value="13">Romanistik</option>
+                  <option value="16">sonstige Philologien</option>
+                  <option value="19">Philosophie</option>
+                  <option value="22">Psychologie</option>
+                  <option value="25">Erziehungswissenschaften</option>
+                  <option value="28">Theologie</option>
+                  <option value="31">Autoren GW</option>
+                  <option value="34">Kunstwissenschaften</option>
+                  <option value="34">Medienwissenschaften</option>
+                  <option value="37">Sportwissenschaften</option>
+                  <option value="40">Geschichte</option>
+                  <option value="43">Geowissenschaften</option>
+                  <option value="46a">Sozialwissenschaften </option>
+                  <option value="46b">Soziologie </option>
+                  <option value="46c">Politikwissenschaften </option>
+                  <option value="49">Wirtschaftswissenschaften </option>
+                  <option value="52">Rechtswissenscahften </option>
+                  <option value="55">Land- und Forstwissenschaften</option>
+                  <option value="58">Naturwissenschaften</option>
+                  <option value="61">Mathematik </option>
+                  <option value="64">Informatik </option>
+                  <option value="67">Physik </option>
+                  <option value="70">Chemie </option>
+                  <option value="73">Astronomie </option>
+                  <option value="75">Biologie </option>
+                  <option value="77">Fachbibliothek Medizin</option>
+                  <option value="77a">Medizin </option>
+                  <option value="79">Technik allgemein</option>
+                  <option value="82">Bauingenieurwesen </option>
+                  <option value="85">Maschinenbau</option>
+                  <option value="88">Elektrotechnik </option>
+                  <option value="91">Sonstige Gebiete der Technik </option>
+                  <option value="94">Turkistik </option>
+                  <option value="99">Sonderstandorte</option>
+                </select>
+                </div>
+			<xed:bind xpath="@type">
+			  <div class="form-group">
+              <div class="col-md-4">
+              <select id="@type" class="form-control">
+                  <option value="referent">Referent</option>
+                  <option value="substitute">Vertretung</option>
+                </select>
+              </div>
+              </div>
+            </xed:bind>
+            <xed:controls/>
+            </div>
+	        </xed:repeat>
+	        
+			
+			</div>
+		  </xed:bind>
+		</div>
+		
+      <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	   <div class="form-group">
+         <label class="col-md-4 control-label" for="save"></label>
+           <div class="col-md-8">
+             <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="UserDefine" >
+             <xed:output i18n="common.button.save" />
+             </button>
+			 <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
+			 <xed:output i18n="common.button.cancel" />
+			 </button>
+			</div>
+         </div>
+	   </div>
+     </xed:bind>
+      
+      
+    </xed:form>
+  </body>
+</html>

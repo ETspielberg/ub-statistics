@@ -1,0 +1,124 @@
+<html>
+<head>
+				<meta charset="utf-8" />
+				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<!-- The above 3 meta tags *must* come first in the head; any other head 
+					content must come *after* these tags -->
+				<meta name="description" content="" />
+				<meta name="author" content="" />
+				<link rel="icon" href="../img/favicon.ico"/>
+				
+				<title>Aussonderungsliste</title>
+
+				<script type="text/javascript" src="../../js/jquery.min.js"></script>
+				<script type="text/javascript"> jQuery.noConflict(); </script>
+				<script src="../../js/ie-emulation-modes-warning.js"></script>
+				<script src="../../js/ie10-viewport-bug-workaround.js"></script>
+					
+				<link href="../../css/bootstrap.css" rel="stylesheet" />
+				<link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+				<link href="../../css/dashboard.css" rel="stylesheet" />
+				
+			</head>
+  <body> 
+  
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+								aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../start">FachRef-Assistent </a>
+							<a class="navbar-brand" href="../admin">::Administration </a>
+							<a class="navbar-brand" href="#">::Standorte </a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="../admin">Zurück</a>
+								</li>
+							</ul>
+						</div><!--/.navbar-collapse -->
+					</div>
+				</nav>
+    
+    
+    <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
+	<xed:source uri="file:///{$ub.statistics.localResourcesDir}/collections.xml" />
+	<xed:cancel url="/fachref/admin" />
+	  
+	 <div class="jumbotron">
+	 <div class="container">
+	 <h1>Standortgruppen</h1>
+	 <p>Zusammenfassen von einzelnen Standorten zu Gruppen</p>
+	 </div>
+	 </div>
+      <xed:bind xpath="/collections">
+        <div class="container">
+	      <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="CollectionDefine" >
+             Speichern
+              </button>
+			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
+			  <xed:output i18n="common.button.cancel" />
+			  </button>
+	      <table class="table table-striped">
+	       <thead>
+		     <tr>
+			   <th> Name </th>
+			   <th> Standorte </th>
+			   <th> Dateiname </th>
+			   <th> Hinzufügen/ Löschen </th>
+			 </tr>
+		   </thead>
+		   <tbody>
+		     <xed:repeat xpath="collection" min="1">
+	         <tr>
+	             <th>
+	               <xed:bind xpath="name">
+                     <div class="form-group">
+                        <input id="name" class="form-control input-md" type="text" />
+                     </div> 
+                   </xed:bind>
+                 </th>
+                 <th>
+	               <xed:bind xpath="places">
+                     <div class="form-group">
+                        <input id="places" class="form-control input-md" type="text" />
+                     </div> 
+                   </xed:bind>
+                 </th>
+                 <th>
+	               <xed:bind xpath="maps">
+                     <div class="form-group">
+                        <input id="mpas" class="form-control input-md" type="text" />
+                     </div> 
+                   </xed:bind>
+                 </th>
+                 <th>
+                 <xed:controls>insert remove</xed:controls>
+                 </th>
+                 </tr>
+                 </xed:repeat>
+              </tbody>
+              </table>
+                           
+              <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="CollectionDefine" >
+                Speichern
+              </button>
+			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
+			  <xed:output i18n="common.button.cancel" />
+			  </button>
+            </div>
+        </xed:bind>
+    </xed:form>
+  </body>
+</html>
+
+

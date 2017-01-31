@@ -1,0 +1,39 @@
+<components>
+<title>
+Blacklist
+</title>
+<description>
+<p>Diese Seite stellt die auf der Blacklist eingetragenen Manifestationen und Expressionen dar, sprich alle einzelnen Auflagen oder gruppierte Auflagen.</p>
+</description>
+<sections>
+<section>
+<title>
+Die Blacklist
+</title>
+<figures>
+<figure>
+<file>
+blacklist.PNG
+</file>
+<caption>
+Beispielhafte Einträge auf der Blacklist.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>Die Liste gibt die Auflagen und oder gruppierte Auflagen wieder, die durch einen der folgenden Gründe von weiteren Analysen ausgeschlossen sind:</p>
+	<ul>
+	<li>Sie wurden durch einen Klick auf den "Standard"-Button in der "Ignorieren?"-Spalte der Aussonderungsliste hinzugefügt.</li>
+	<li>Sie wurden durch einen Klick auf den "Erweitert"-Button in der "Ignorieren?"-Spalte der Aussonderungsliste hinzugefügt.</li>
+	<li>Es fand eine Aussonderung dieser Signatur über die generierte E-Mail statt.</li>
+	</ul>
+	<p> Über das rote Kreuz können Einträge aus der Blacklist wieder entfernt werden und werden somit bei späteren Analysen erneut berücksichtigt.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

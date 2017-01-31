@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systematik zahl="01" kurz="All" von="AAA" bis="ZZZ">
+  <bez>Allgemeines</bez>
+  <comment>Ein Kommentar.</comment>
+  <gruppe von="AAA" bis="BBB">
+    <bez>Allgemeines</bez>
+      <stelle code="AAA">
+        <bez>Allgemeines</bez>
+      </stelle>
+  </gruppe>
+</systematik>
+

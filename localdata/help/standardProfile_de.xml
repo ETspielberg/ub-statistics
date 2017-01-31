@@ -1,0 +1,13 @@
+<components>
+<title>
+Standardprofil
+</title>
+<description>
+<p>Das Standardprofil wird bei der Analyse aus dem Ausleihprotokoll heraus verwendet. Außerdem dienen seine Werte als Startwerte bei der Erstellung eines neuen Profils.</p>
+</description>
+<authors>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

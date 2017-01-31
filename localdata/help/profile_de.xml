@@ -1,0 +1,94 @@
+<components>
+<title>
+Die Profile
+</title>
+<description>
+<p> Die Profile stellen den Kernbereich der Bestandspflege dar. Von dieser Übersichtsseite hat man die Möglichkeit, für jeden Bereich ein einzelnes Profil anzuzlegen, csv-Dateien zu analysierem, sowie die Aussonderungs- und Erwerbungslisten anzusehen.</p>
+<p> Zunächst zeigt die Seite eine Liste der bisher definierten Profile. Diese werden geteilt angezeigt, einmal für jene Fächer, für die sich der Nutzer als Fachreferent erklärt hat, und für weitere Fächer. </p>
+</description>
+<figures>
+<figure>
+<file>
+profiles.png
+</file>
+<caption>
+Die Profil-Seite mit einem Überblick über die erstellten Profile, die hochgeladenen csv-Dateien und Zugriff auf das Standard- und das csv-Profil.
+</caption>
+</figure>
+</figures>
+<functions>
+<function>
+<name>
+scpDefine
+</name>
+<title>
+Profil bearbeiten
+</title>
+<description>
+	<p>Über den Button "Neues Profil erstellen" oder nach Klick auf "Standardprofil" oder "csv-Profil" wird man jeweils auf eine Eingabemaske weitergeleitet, auf der die Parameter des entsprechenden Profils definieren kann.</p>
+	<p>Mit dem gelben Button können die Profile anschließend bearbeitet und geändert werden, der rote löscht die entsprechenden Profile.</p>
+</description>
+</function>
+<function>
+<name>
+deletionAssistant
+</name>
+<title>
+Aussonderung
+</title>
+<description>
+	<p> Durch einen Klick auf den Button "Aussonderung" gelangt man zu den Aussonderungslisten, die mit diesem Profil erstellt wurden.</p>
+	<div class="alert alert-danger" role="alert">
+		Bevor eine Aussonderungsliste zur Verfügung steht, muss die Analyse einmal durchgeführt worden sein. Dies geschieht manuell durch den Klick auf das blaue Sternchensymbol.
+	</div>
+</description>
+</function>
+<function>
+<name>
+purchaseAssistant
+</name>
+<title>
+Erwerbung
+</title>
+<description>
+	<p> Durch einen Klick auf den Button "Erwerbung" gelangt man zu den Erwerbungslisten, die mit diesem Profil erstellt wurden.</p>
+	<div class="alert alert-danger" role="alert">
+		Bevor eine Erwerbungsliste zur Verfügung steht, muss die Analyse einmal durchgeführt worden sein. Dies geschieht manuell durch den Klick auf das blaue Sternchensymbol.
+	</div>
+</description>
+</function>
+<function>
+<name>
+blacklist
+</name>
+<title>
+Zur Blacklist
+</title>
+<description>
+<p>Der Button "Zur Blacklist" führt zu einer tabellarischen Übersicht all jener Auflagen oder Werke, die von einer Analyse ausgeschlossen wurden. Einträge in der Blacklist können entweder aus einer Aussonderungsliste heraus oder durch automatisierte Vorgänge erzeugt werden. </p>
+</description>
+</function>
+<function>
+<name>
+standardProfile
+</name>
+<title>
+Standardprofil
+</title>
+<description>
+ <p>Das Standardprofil legt fest, welche Parameter bei der Berechnung eines Aussonderungsvorschlages aus dem Ausleihprotokolls heraus verwendet werden, falls der Nutzer im FachRef-Assistenten angemeldet ist. Andernfalls werden die Standardparamter verwendet.</p>
+</description>
+</function>
+<function>
+<name>
+csvUpload
+</name>
+<title>
+csv-Profile
+</title>
+<description>
+<p>Über das Feld im unteren Bereich der Seite können csv-Dateien hochgeladen werden. Aus Spalten die mit "ADM" überschrieben sind werden die Identifikatoren für die Auflagen ausgelesen. Die entsprechenden Auflagen werden dann auf mögliche Aussonderungen hin analysiert (Button "zur Liste"). </p>
+</description>
+</function>
+</functions>
+</components>

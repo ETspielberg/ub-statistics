@@ -1,0 +1,94 @@
+<components>
+<title>
+Neuer Benachrichtigungsdienst
+</title>
+<figures>
+<figure>
+<file>
+hitlistsDefine.PNG
+</file>
+<caption>
+Eingabebereich für die Hitlisten-Profile.
+</caption>
+</figure>
+</figures>
+<description>
+<p> Für jeden Bereich kann ein Benachrichtigungsdienst eingerichtet werden. Prinzipiell stehen dabei drei Möglichkeiten zur Verfügung:</p>
+	<ol>
+	<li>Der Alerting-Service, der über jedes Überschreiten eines Grenzwertes informiert.</li>
+	<li>Der Reader-Service, der in bestimmten Zeitabständen den aktuelle Überschreitungen per E-Mail mitteilt.</li>
+	<li>Die Hitliste, die die aufbereitete Liste an Vormerkungen als Webseite darstellt.</li>
+	</ol>
+    <p> Für jede dieser Möglichkeiten werden ein paar Parameter benötigt, damit sie funktionieren können.</p>
+</description>
+<sections>
+<section>
+<title>
+Angaben zum Bereich
+</title>
+<description>
+<p>In diesem Bereich werden die allgemeinen Parameter für die Hitlisten-Bereiche definiert: </p>
+	<ul>
+	<li>Ein Name für diesen Bereich</li>
+	<li>Der entsprechende Fachbereich, der in der Hitliste dargetsllt werden soll.</li>
+	<li> Anschließend kann dieser Fachbereich noch eingeschränkt werden. Dazu können entweder einzelne Systemstellen einegegeben werden ("AAA"), Bereiche (mit Bindestrich: "AAA-AAZ"), Listen (durch Kommata getrennt: "AAA,BBB,CCC") oder beliebeige Kombinationen ("AAA-AAZ, BBB,CCC-CCZ"). Dieses Feld kann aber auch leer bleiben.</li>
+	</ul>	
+</description>
+</section>
+<section>
+<title>
+Angaben zum Alerting-Dienst
+</title>
+<description>
+	<p>In diesem Bereich werden die Schwellenwerte angegeben, bei deren Überschreitung eine E-Mail versendet wird. Dabei gibt es zwei Möglichkeiten: </p>
+	<ul>
+	<li>Der Quotient aus Vormerkungen und ausleihbaren überschreitet einen angegebenen Wert ("Schwelle Quotient") oder  </li>
+	<li>Die Dauer einer Vormerkung überschreitet einen bestimmten Wert ("Schwelle Dauer").</li>
+	</ul>
+	<p> Über die Auswahl "Aktiv/Inaktiv" kann der Dienst ein- und ausgeschaltet werden.</p>
+</description>
+</section>
+<section>
+<title>
+Angaben zum Reader-Dienst
+</title>
+<description>
+	<p>Dieser Bereich ist sehr ähnlich den Angaben des Alerting-Dienstes. In bestimmten Zeitabständen überprüft er die Hitlisten der Vormerkungen und versendet eine E-Mail, falls die eingestellten Schwellenwerte zu diesem Zeitpunkt überschritten werden. Auch in diesem Bereich werden die Schwellenwerte angegeben, bei deren Überschreitung eine E-Mail versendet wird. Dabei gibt es zwei Möglichkeiten: </p>
+	<ul>
+	<li>Der Quotient aus Vormerkungen und ausleihbaren überschreitet einen angegebenen Wert ("Schwelle Quotient") oder  </li>
+	<li>Die Dauer einer Vormerkung überschreitet einen bestimmten Wert ("Schwelle Dauer").</li>
+	</ul>
+	<p> Über die Auswahl "Aktiv/Inaktiv" kann der Dienst ein- und ausgeschaltet werden.</p>
+	<p>Außerdem können über zwei Dropdown-Menüs Angaben zu den Zeiten gemacht werden, in denen der Dienst die Vormerkungen überprüft.</p>
+</description>
+</section>
+<section>
+<title>
+Warum zwei Dienste?
+</title>
+<description>
+	<p>Die Dienste sind sich prinzipiell recht ähnlich, sind aber für zwei unterschiedliche Szenarien gedacht:</p>
+	<ul>
+	<li>Der Alerting-Dienst informiert, falls akut bestimmte Werke extrem nachgefragt sind. Hier könnten höhere Grenzwerte gesetzt werden, um auf außerordentliche Ereignisse zu reagieren</li>
+	<li>Der Reader-Dienst überprüft in regelmäßigen Abständen und ermöglicht damit einen koninuierlichen Bestandsausbau. Hier können geringere Werte gesetzt werden, sodass in regelmäßigen Abständen der Bestand überprüft werden kann.</li>
+	</ul>
+</description>
+</section>
+<section>
+<title>
+Speichern oder Abbrechen
+</title>
+<description>
+	<p> Zuletzt muss das Alerting-Profil über den Button "Speichern" gespeichert werden. Anschließend steht es in der Hitlisten-Übersicht zur Verfügung. Über "Abbrechen" kommt man ohne zu Speichern auf die Übersichtsseite zurück.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Frank Lützenkirchen
+</author>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

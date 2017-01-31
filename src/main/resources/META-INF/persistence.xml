@@ -1,0 +1,104 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="documentAnalysis" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.analysis.DocumentAnalysis</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/ub-statistics/documentAnalysisData;create=true;AUTO_SERVER=TRUE" />
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="5tat5" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="eventAnalysis" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.analysis.EventAnalysis</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/ub-statistics/eventAnalysisData;create=true" />
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="5tat5" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="userData" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.userauth.User</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/ub-statistics/userData;create=true" />
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="U53rR0l35" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="tools" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.Notation</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/ub-statistics/notationsData;create=true;AUTO_SERVER=TRUE" />
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="5tat5" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="nRequestsData" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.analysis.NRequests</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:mem:nRequestData;create=true" />
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="5tat5" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="sushiData" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>unidue.ub.statistics.sushi.publisher.Publisher</class>
+		<class>unidue.ub.statistics.media.ejournal.Package</class>
+		<class>unidue.ub.statistics.media.ejournal.Journal</class>
+		<class>unidue.ub.statistics.media.ejournal.JournalTitle</class>
+		<class>unidue.ub.statistics.sushi.Counter</class>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/sushiData;create=true" />
+			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/sushiData" /> -->
+			<!-- <property name="hibernate.connection.url" value="jdbc:h2:file:~/AppData/Local/MyCoRe/ub-statistics/documentAnalysisData;create=true;AUTO_SERVER=TRUE" /> -->
+			<property name="hibernate.connection.user" value="ubStatistics" />
+			<property name="hibernate.connection.password" value="5tat5" />
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+		</properties>
+	</persistence-unit>
+</persistence>

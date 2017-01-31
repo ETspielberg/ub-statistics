@@ -1,0 +1,41 @@
+<components>
+<title>
+Aussonderungerung
+</title>
+<description>
+<p>Diese Seite stellt die mittels eines Bestandsprofils vorgeschlagenen Aussodnerungen dar.</p>
+</description>
+<sections>
+<section>
+<title>
+Liste der Aussonderungsvorschläge
+</title>
+<figures>
+<figure>
+<file>
+deletionAssistant.PNG
+</file>
+<caption>
+Aussonderungsvorschläge auf der Basis der letzten X Jahre.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>Basierend auf den Paramtern im Profil werden die Ausleihen der einzelnen Exemplare im Verhältnis zum aktuellen Bestand analysiert. Das Ergebnis wird in dieser Liste zusammengestellt. Berücksichtigt werden dabei alle Ausleihen in dem eingestellte Zeitfenster ("Zeitraum für Aussonderung"). Ausleihen in Handapparate werden nicht als Ausleihen gezählt. Die Liste ist frei durchsuchbar und kann beliebig nach einzelnen Spalten sortiert werden.</p>
+	<p>Die Liste nennt zunächst die Signatur, wobei bibliographische Kurzinformationen als Info-Box eingeblendet werden, sobald die Maus über die Signatur bewegtZugriff auf das entsprechende Ausleihprotokoll.</p>
+	<p>Es folgen Angaben zur mittleren Ausleihe, der maximale Ausleihe, der Veränderung der maximalen Ausleihe, dem Bestand und dem Vorschlag tur Aussonderung. </p>
+	<p>Zusätzlich ist eine Spalte für Kommentare vorhanden, bei der ein "ggf. umstellen" vermerkt ist, falls sich die Anzahl durch die Aussonderung unter 3 Exemplare reduziert.</p>
+	<p>In der letzen Spalte ("Ignorieren?") befinden sich zwei Links, die den entsprechenden Eintrag auf die Blackliste (d.h. die Liste der Exemplare, die von Analysen und Aussonderung ausgenommen sind) setzt. Dabei gibt es zwei verschiedene Wege:</p>
+	<ol>
+	<li>Bei dem "Standard"-Weg wird das Werk kommentarlos mit der in den persönlcihen Einstellungen angegebenen Frist aufgenommen.</li>
+	<li>Bei dem "Erweitert"-Weg wird der Nutzer auf eine neue Seite geleitet, wo er die Möglichkeit hat, die Frist, die das Exempalr auf der Blacklist verbleibt, frei zu wählen. Außerdem kann er den Eintrag dort mit einem Kommentar versehen.</li>
+	</ol>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

@@ -1,0 +1,40 @@
+<components>
+<title>
+Das Hitlisten-Formular
+</title>
+<description>
+<p>Definiert die Paramter für die Hitlisten einzelner Bestandssegemente</p>
+<ul>
+<li>Angaben zum Bereich</li>
+<li>Parameter zur Ausleihenanalyse</li>
+<li>Parameter zur Vormerk-Analyse</li>
+</ul>
+</description>
+<sections>
+<section>
+<title>
+Erwerbungsvorschläge
+</title>
+<figures>
+<figure>
+<file>
+purchaseAssistant.PNG
+</file>
+<caption>
+Erwerbungsvorschläge auf der Basis der letzten X Jahre.
+</caption>
+</figure>
+</figures>
+<description>
+	<p>Basierend auf den Paramtern im Profil werden die Vormerkvorgänge der einzelnen Exemplare analysiert. Das Ergebnis wird in dieser Liste zusammengestellt. Berücksichtigt werden dabei alle Vormerkungen in dem eingestellte Zeitfenster ("Zeitraum für Vormerkungen"). Die Liste ist frei durchsuchbar und kann beliebig nach einzelnen Spalten sortiert werden.</p>
+	<p>Die Liste nennt zunächst die Signatur, wobei bibliographische Kurzinformationen als Info-Box eingeblendet werden, sobald die Maus über die Signatur bewegtZugriff auf das entsprechende Ausleihprotokoll.</p>
+	<p>Es folgen die Angaben zum aktuellen Bestand, der maximalen Anzahl an Vormerkungen und der durchschnittlichen Dauer der Vormerkungen. Aus diesen Ergebnissen wird in der letzten Spalte eine Vorschlag für Neuerwerbungen gemacht.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

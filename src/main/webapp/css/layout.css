@@ -1,0 +1,145 @@
+article {
+	background-color: #dfe4f2;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+table.form, table.overview {
+	border-collapse: collapse;
+	border: 1px solid #8a9dd0;
+}
+
+table.overview td.number {
+	text-align: right;
+}
+
+table.overview td.stock {
+	font-weight: bold;
+}
+
+input[type=submit] {
+	background-color: #304090;
+	color: white;
+	margin-left: 5px;
+}
+
+table.form th, table.form td, table.overview th, table.overview td {
+	padding: 3px;
+}
+
+.highchart {
+	width: 714px;
+	padding: 5px;
+	background-color: #ededed;
+}
+
+table.eventStatistics {
+	margin-top: 2ex;
+	margin-bottom: 2ex;
+	margin-left: 1ex;
+	border-collapse: collapse;
+	border: 1px solid #8a9dd0;
+}
+
+table.eventStatistics thead tr {
+	color: white;
+	background-color: #8a9dd0;
+}
+
+table.eventStatistics tr {
+	line-height: 1.2ex;
+}
+
+table.eventStatistics th {
+	font-weight: bold;
+	min-width: 5ex;
+	padding: 5px 2px 5px 2px;
+	text-align: right;
+	border: 1px solid #8a9dd0;
+}
+
+table.eventStatistics td {
+	padding: 5px 2px 5px 2px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.dataTables_wrapper {
+	color: black;
+	padding: 1ex;
+	width: 710px;
+	background-color: #ededed;
+	border-bottom: 2px solid #304090;
+}
+
+.dataTables_info {
+	clear: both;
+	float: left;
+	padding: 5px;
+}
+
+.dataTables_filter {
+	float: right;
+	padding: 5px;
+	text-align: right;
+}
+
+.dataTables_paginate {
+	clear: both;
+	float: left;
+	padding-bottom: 1ex;
+}
+
+.dataTables_length {
+	float: right;
+	padding-bottom: 1ex;
+}
+
+.dataTables_wrapper .fg-button {
+	margin-right: 1ex;
+	padding-left: 1ex;
+	padding-right: 1ex;
+}
+
+.dataTables_wrapper .ui-state-default.fg-button {
+	background: #dfeffc;
+	border: 1px solid #c5dbec;
+	color: #2e6e9e;
+	font-weight: bold;
+}
+
+table caption {
+	background-color: #304090;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: left;
+}
+
+table.datatable {
+	clear: both;
+	border-collapse: collapse;
+	width: 710px;
+}
+
+table.datatable th {
+	text-align: left;
+	color: white;
+	background-color: #8a9dd0;
+}
+
+.DataTables_sort_icon {
+	float: right;
+}
+
+table.datatable th, td {
+	border: 1px solid #8a9dd0;
+}
+
+tr.odd, tr:nth-child(2n+1) {
+	background-color: #f6f6f5;
+}
+
+tr.even, tr:nth-child(2n) {
+	background-color: #dfe4f2;
+}

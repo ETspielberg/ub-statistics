@@ -1,0 +1,62 @@
+<components>
+<title>
+Die persönlichen Einstellungen
+</title>
+<figures>
+<figure>
+<file>
+settings.PNG
+</file>
+<caption>
+Eingabebereich für die persönlichen Einstellungen.
+</caption>
+</figure>
+</figures>
+<description>
+<p>Über dieses Formular werden die persönlichen Einstellungen definiert. Es gliedert sich in zwei Bereiche</p>
+<ul>
+<li>Angaben zum Personl</li>
+<li>Angaben zu Fächern</li>
+</ul>
+</description>
+<sections>
+<section>
+<title>
+Angaben zur Person
+</title>
+<description>
+	<p> Zunächst wird der Vollständige Name angegeben, der als Absender unter E-Mails gesetzt wird und als Login-Name rechts oben auf den Seiten erscheint. Außerdem wird die E-Mail-Adresse abgefragt, an die Benachrichtigungen gesendet werden.</p>
+    <p> Zusätzlich wird die Zeit (in JAhren) erfragt, die eine Auflage (oder ein Manifestation) auf der Blcklist bleibt, falls es</p>
+		<ul>
+    	<li> Über den "Standard"-Button dort eingetragen wird.</li>
+		<li> Nach einer Aussonderung für weitere Analysen gesperrt wird.</li>
+    	</ul>
+</description>
+</section>
+<section>
+<title>
+Angaben zu den Fächern
+</title>
+<description>
+	<p>In diesem Bereich können die Fächer gewählt werden, für die der Nutzer zuständig ist. Dabei hat er über ein Drop-Down-Menü die Wahl anzugeben, ob er hauptverantwortlich dies Fach betreut ("Referent") oder nur eine Vertretungsfunktion ausübt ("Vertretung").</p>
+	<p>Über den Button "+" lassen sich weitere Fächer hinzufügen, über den Button "-" vorhandene löschen.</p>
+</description>
+</section>
+<section>
+<title>
+Speichern oder Abbrechen
+</title>
+<description>
+	<p> Zuletzt müssen die Einstellungen über den Button "Speichern" gespeichert werden. Über "Abbrechen" kommt man ohne zum Startbildschirm zurück.</p>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Frank Lützenkirchen
+</author>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

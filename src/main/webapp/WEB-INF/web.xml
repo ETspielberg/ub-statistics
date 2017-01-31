@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+<display-name>ub-statistics</display-name>
+  
+  <servlet>
+    <servlet-name>SCPDefine</servlet-name>
+    <servlet-class>unidue.ub.statistics.stockcontrol.SCPDefineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SCPDefine</servlet-name>
+    <url-pattern> /fachref/profile/scpDefine </url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AlertDefine</servlet-name>
+    <servlet-class>unidue.ub.statistics.alert.AlertDefineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlertDefine</servlet-name>
+    <url-pattern> /fachref/hitlists/alertDefine </url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>StockAssistant</servlet-name>
+    <servlet-class>unidue.ub.statistics.stock.StockAnalysisAssistantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StockAssistant</servlet-name>
+    <url-pattern> /fachref/stock/stockAssistant/* </url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>stockUsage</servlet-name>
+    <servlet-class>unidue.ub.statistics.stock.StockUsageAnalysisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>stockUsage</servlet-name>
+    <url-pattern> /fachref/stock/usage/* </url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>MCRStaticXEditorFileServlet</servlet-name>
+    <servlet-class>org.mycore.frontend.xeditor.MCRStaticXEditorFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MCRStaticXEditorFileServlet</servlet-name>
+    <url-pattern>*.xed</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TimelineExporter</servlet-name>
+    <servlet-class>unidue.ub.statistics.TimelineExporter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TimelineExporter</servlet-name>
+    <url-pattern> /timeline/* </url-pattern>
+  </servlet-mapping>
+  
+  <!-- Shiro authentification and authorization infrastructure -->
+  <filter>
+    <filter-name>ShiroFilter</filter-name>
+    <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+    <!--  <init-param>
+    	<param-name>configPath</param-name>
+    	<param-value>file:${user.home}/AppData/Local/MyCoRe/ub-statistics/shiro.ini</param-value>
+	</init-param>-->
+  </filter>
+
+  <filter-mapping>
+    <filter-name>ShiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+
+  </web-app>

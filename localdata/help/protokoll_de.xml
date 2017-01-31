@@ -1,0 +1,186 @@
+<components>
+<title>
+Das Ausleihprotokoll
+</title>
+<description>
+Das Ausleihprotokoll zeigt eine graphische Übersicht aller Bestände, Ausleihen und Vormerkungen für einen Titel. Insbesondere wird ausgegeben, wie viele Exemplare eines Titels gleichzeitig ausgeliehen bzw. vorgemerkt waren. Dazu werden alle in Aleph verfügbaren Inventarisierungsdaten Ausleihen und Vormerkungen seit ca. 2001 ausgewertet.
+
+Erforderlich ist ein aktueller Browser mit aktiviertem JavaScript 
+</description>
+<sections>
+<section>
+<title>
+Eingabe 
+</title>
+<figures>
+<figure>
+<file>
+eingabe.png
+</file>
+<caption>
+Eingabemaske für den zu untersuchenden Bereich.
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Einzugeben ist die Grundsignatur des Titels, wahlweise mit oder ohne Auflagenanhänger. Wird keine Auflage in der Signatur angegeben, werden alle Auflagen des Titels angezeigt. Soll ausdrücklich nur die erste Auflage eines Titels ausgegeben werden, muss in der Checkbox "exakte Übereinstimmung" ein Häkchen gesetzt werden. Duisburger Signaturen müssen ggf. mit dem angehängten "_d" eingegeben werden.</p>
+    <p> Beispiele: <a href="../../ausleihprotokoll?shelfmark=TWY6118">TWY6118, alle Auflagen </a>oder <a href="../../ausleihprotokoll?shelfmark=TWY6118&amp;exact=true">TWY6118, nur erste Auflage</a> </p>
+    <p> Die Signatur wird verwendet, um die passenden Titelaufnahmen zu finden. Für diese werden dann alle Exemplare gesucht und ausgewertet. Wenn ein Titel also sowohl eine Essener als auch eine Duisburger Signatur hat, mit gleicher Titelaufnahme, kann jede beliebige dieser Signaturen eingegeben werden, um die gleiche Auswertung zu erhalten.</p>
+	<p> Über das Eingabefeld "Standorte" kann nach Exemplarstandort gefiltert werden, nur diese Exemplare werden dann bei der Auswertung berücksichtigt. Beispiele:</p>
+    	<ul>
+    	<li> E33 nur Essen, Lehrbuchsammlung Fachbibliothek MNT</li>
+		<li> E3? nur Essen, Fachbibliothek MNT (? am Ende können auch weggelassen werden: E3 entspricht E3?)</li>
+    	<li> ??3 nur Lehrbuchsammlung in Essen oder Duisburg </li>
+    	<li> ??1 ??3 ??5 ??7 ??9 nur ausleihbare Exemplare </li>
+    	</ul>
+	<p> Über das Eingabefeld "Materialien" kann nach Materialart gefiltert werden, z. B. unterdrückt die Eingabe von BOOK die Auswertung der CD-ROM Beilagen, die ansonsten als einzelne Exemplare mit ausgewertet würden.</p>
+	<p> Für jede gefundene Titelaufnahme (i.d.R. also für jede Auflage/jeden Nachdruck) wird ein separater Abschnitt ausgegeben. Ein Link zum OPAC zeigt den aktuellen Exemplarzustand im OPAC.</p>
+</description>
+</section>
+<section>
+<title>
+Tabelle: Übersicht
+</title>
+<figures>
+<figure>
+<file>
+ueberblick.PNG
+</file>
+<caption>
+Übersichtstabelle über alle gefundenen Auflagen mit einigen Nutzungsdaten
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Die erste Tabelle gibt eine übersicht über die gefundenen Auflagen. Für jede Auflage werden die Signatur, das Erscheinungsjahr, die Bestände in Essen und Duisburg sowie die Gesamtanzahl an Ausleihen pro Jahr angegeben. </p>
+	<p> Am Anfang jeder Zeile befidnet sich eine Check-Box, über die einzelne Auflagen für weitere Analysen ausgewählt werden können. Die Analyse wird über den Button mit dem "?" links oben in der Tabelle aufgerufen.</p>
+	<p> Im Anschluss folgen genauere Angaben für jede Auflage. Die einzelnen Auflagen können über einen Klick auf die Reiter ausgewählt werden. </p> 
+</description>
+</section>
+<section>
+<title>
+Graphische Darstellung 
+</title>
+<figures>
+<figure>
+<file>
+graphics.PNG
+</file>
+<caption>
+Graphische Darstellung den Bestand (blau), Ausleihen (rot) und Vormerkungen (grün).
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Dargestellt wird die Anzahl der vorhandenen Exemplare, die über die Zeit hinweg gleichzeitig ausgeliehenen Exemplare und die Anzahl der gleichzeitig vorliegenden Vormerkungen. Wenn Sie die Maus über die Kurve bewegen, wird das jeweilige Datum angezeigt. Durch Klicken und Ziehen können Sie in einen Zeitbereich hineinzoomen. Über die Icons am rechten oberen Rand der Grafik können Sie das Diagramm drucken oder als PDF, JPG, SVG oder PNG Datei exportieren. Durch Klicken auf die Bildunterschriften "Ausleihen" bzw. "Vormerkungen" können Sie die jeweiligen Kurven ein- und ausblenden.</p>
+</description>
+</section>
+<section>
+<title>
+Tabelle: Statistik
+</title>
+<figures>
+<figure>
+<file>
+tableSummary.PNG
+</file>
+<caption>
+Übersichtstabelle über alle gefundenen Auflagen mit einigen Nutzungsdaten
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Die zweite Tabelle gibt für jedes Jahr sowie aufsummiert über alle Jahre die folgenden Informationen aus:</p>
+    <ul> 
+    	<li> Anzahl der neuen Ausleihen und Vormerkungen in diesem Jahr, bzw. insgesamt</li>
+    	<li> durchschnittliche Ausleihdauer in Tagen (dem Jahr zugerechnet, in dem die Ausleihe begonnen hat, nur abgeschlossene Ausleihen berücksichtigt)</li>
+    	<li> durchschnittliche Dauer der Vormerkungen in Tagen bis zur Bereitstellung (dem Jahr zugerechnet, in dem die Vormerkung begonnen hat, nur abgeschlossene Vormerkungen berücksichtigt)</li>
+    	<li> CALD: Anzahl der Vormerkungen im Rahmen des Campuslieferdienstes (anderer Bereitstellungsort), diese werden aus den generellen Vormerkungen herausgerechnet.</li>
+    </ul>
+</description>
+</section>
+<section>
+<title>
+Bibliographische Informationen
+</title>
+<figures>
+<figure>
+<file>
+bibliographicInformation.PNG
+</file>
+<caption>
+Bibliographische Grundinformationen zu der gefundenen Auflage.
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Es folgt eine Box mit den grundlegenden Bibliographischen Informationen. Außerdem befinden sich in dieser Box zwei Buttons: Einer führt zu dem entsprechenden Eintrag in Primo, der andere zur Analyse-Seite mit einer Darstellung dieser Auflage hinsichtlich der Ausleihe durch verschiedene Benutzergruppen. Außerdem wird dort für diese Auflage ebenfalls ein Aussonderungsvorschlag berechnet.</p>
+</description>
+</section>
+<section>
+<title>
+Tabelle der Exemplare
+</title>
+<figures>
+<figure>
+<file>
+tableItems.PNG
+</file>
+<caption>
+Übersichtstabelle über alle gefundenen Auflagen mit einigen Nutzungsdaten
+</caption>
+</figure>
+</figures>
+<description>
+<p> Die folgende Tabelle listet alle gefundenen Exemplare mit ihrem aktuellen Exemplar- und Geschäftsgangstatus. Dabei werden auch inzwischen gelöschte bzw. ausgesonderte Exemplare ausgegeben, wenn auf diese in der Vergangenheit Ausleihen oder Vormerkungen stattgefunden haben. Die Tabelle gibt für jedes Exemplar zusätzlich die Anzahl der Ausleihen dieses Exemplares aus.</p>
+	</description>
+</section>
+<section>
+<title>
+Tabelle Ereignisprotokoll
+</title>
+<figures>
+<figure>
+<file>
+tableEvents.PNG
+</file>
+<caption>
+Übersichtstabelle über alle gefundenen Auflagen mit einigen Nutzungsdaten
+</caption>
+</figure>
+</figures>
+<description>
+	<p> Die Tabelle gibt alle Ausleihen, Rückgaben, Vormerkungen, Bereitstellungen und CALD-Vormerkungen aus. Für abgeschlossene Ausleihen und Vormerkungen wird das Enddatum und die Dauer der Ausleihe (bzw. Dauer der Vormerkung bis zur Bereitstellung) in Tagen ausgegeben. Je Ereignis wird der Benutzerstatus (Student, Extern, Mitarbeiter, Sonderausweis) mit ausgegeben.</p>
+	<p> Die Tabellen lassen sich nach jeder Spalte auf- oder absteigend sortieren, indem man auf die jeweilge Spaltenüberschrift klickt. Die Anzahl der gleichzeitig dargestellten Zeilen kann über die Auswahlbox eingestellt werden, weitere Zeilen sind über die Blätterfunktion (wie in typischen Trefferlisten anderer Systeme auch) erreichbar. Im Feld "Search:" kann ein Suchausdruck eingegeben werden, der die gesamte Tabelle nach diesem Ausdruck filtert.</p>
+	<p> Beispiele: </p>
+	<ul>
+		<li> Die Eingabe von "Ausleihe Extern" zeigt nur die Ausleihvorgänge externer Benutzer</li>
+    	<li> Die Eingabe von "+11 2010" zeigt die Vorgänge für das Exemplar +11 im Jahr 2010 </li>
+	</ul>
+</description>
+</section>
+<section>
+<title>
+Mögliche Anwendungen
+</title>
+<description>
+	<ul>
+		<li> Aussonderung in der Lehrbuchsammlung: Wie viele Exemplare eines Titels wurden in den letzten Jahren noch gleichzeitig genutzt? </li>
+    	<li> Wie viele Ausleihen wurden von externen Benutzern getätigt (durch Filtern des Ereignisprotokolls)? </li>
+    	<li> Welche Exemplare wurden am häufigsten ausgeliehen (ggf. wegen starker Beanspruchung bevorzugt aussondern)? </li>
+    	<li> Wie lange ist ein Titel im Durchschnitt ausgeliehen? </li>
+    	<li> Wie lange muss ein Benutzer im Durchschnitt bei einer Vormerkung warten, bis ein Exemplar bereitgestellt wird? </li>
+    	<li> Wie verteilt sich die Nutzung auf Sommer- und Wintersemester? </li>
+    </ul>
+</description>
+</section>
+</sections>
+<authors>
+<author>
+Frank Lützenkirchen
+</author>
+<author>
+Eike Spielberg
+</author>
+</authors>
+</components>

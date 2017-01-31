@@ -1,0 +1,52 @@
+<components>
+<title>
+Die Bestandsübersicht
+</title>
+<description>
+<p> Diese Seite stellt interaktive Abbildungen des Bestandes, dessen Zusammensetzung, der Ausleihen und der Verteilung auf die Benutzergruppen dar. In der linken Leiste sind Informationen zur übergeordneten Systemstelle dargestellt.</p>
+</description>
+<figures>
+<figure>
+<file>
+bestandSidebar.PNG
+</file>
+<caption>
+Informationen zu dem gewählten Bereich.
+</caption>
+</figure>
+</figures>
+<sections>
+<section>
+<title>
+Die mittlere Ausleihe pro Systemstelle oder -gruppe
+</title>
+<description>
+<p>In dieser Abbildung wird die mittlere Ausleihe der einzelnen Untergruppen der gewählten Gruppe aus der Aufstellungssystematik dargestellt.</p>
+</description>
+</section>
+<section>
+<title>
+Die Zusammensetzung der Ausleihen
+</title>
+<description>
+<p>In dieser Abbildung wird die Zusammensetzung der Ausleihen je nach Nutzergruppe für die einzelnen Untergruppen der gewählten Gruppe aus der Aufstellungssystematik dargestellt.</p>
+</description>
+</section>
+<section>
+<title>
+Der Bestand
+</title>
+<description>
+<p>In dieser Abbildung wird der absolute Bestand für die einzelnen Untergruppen der gewählten Gruppe aus der Aufstellungssystematik dargestellt.</p>
+</description>
+</section>
+<section>
+<title>
+Die Zusammensetzung des Bestandes
+</title>
+<description>
+<p>In dieser Abbildung wird die vErteilung des Bestandes auf einzelne Standortgruppen für die einzelnen Untergruppen der gewählten Gruppe aus der Aufstellungssystematik dargestellt.</p>
+</description>
+</section>
+</sections>
+</components>

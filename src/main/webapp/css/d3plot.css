@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+.legend {
+					font-size: 16px;
+					font-weight: bold;
+					text-anchor:
+					start;
+					}
+
+					path {
+					stroke: steelblue;
+					stroke-with: 1;
+					fill: none;
+					}
+
+					.axis
+					path, .axis line {
+					fill: none;
+					stroke: #000;
+					stroke-width: 1;
+					shape-rendering: crispEdges;
+					}
+
+					.area {
+					fill: steelblue;
+					}
+					
+					parent .popup {
+  display: none;
+}
+
+.parent:hover .popup {
+  display: block;
+}

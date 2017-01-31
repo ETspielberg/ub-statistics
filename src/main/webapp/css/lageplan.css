@@ -1,0 +1,203 @@
+body {
+    color: #000;
+    font: 14px/1.6 Arial,sans-serif;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover, a:focus, a.current {
+    background-color: #004c93;
+    color: #fff;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+}	
+
+.fb1 {
+	display:block;
+	color:#404040;
+	font-size:16px;
+	padding:0 0 0 0;
+	margin-left:1.3em;
+}
+.fbadr {
+	display:block;
+	font-size:14px;
+	padding:7px 0 0 0;
+	width:58em;
+	margin-left:1.4em;
+}
+
+.logo {
+	display: block;
+	margin: 1em 1em 0 1em ;
+	float:right
+}
+
+.klein {
+	display:block;
+	font-size:11px;
+	padding:3px 20px;
+	margin-right:16px;
+}
+.klein1 {
+	display:block;
+	font-size:11px;
+	padding:0 2em;
+	margin-top:-1.8em
+}
+
+.ex {
+	display:block;
+	font-size:14px;
+	padding:1em 0;
+	margin-bottom:0;
+	margin-left: 1.4em;
+	top: 0.6em;
+	float: left;
+}
+.signatur {
+	color:#404040;
+	font-size:18px;
+	margin-bottom: 10px;
+	line-height:1.5em;
+}
+.ort {
+	clear:both;
+	font-size:14px;
+	margin-bottom:10px;
+	margin-left: 1.4em;
+	top: 0.6em;
+}
+ 
+.qrcode {
+	float:left;	
+	margin:0.2em 2em 0 0;
+	}
+
+.qrcode  img{
+	width:14em	
+}
+
+.plan {
+	display:inline-block;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	margin: 2em 0 0 0;
+}
+ 
+.plan object{
+	/* float:left; */
+	width:800;
+	height:800;
+	padding:0;
+}
+
+.mapbezeichnung {
+	clear:both;
+	font-size:14px;
+	display:block;
+	padding: 0 23px;
+	color:#404040;
+	margin-top:2em;
+}
+
+.map .lageplan{
+	height: 320px;
+	width: 300px;  
+	margin: 0.9em 0 3em 1.8em !important;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.rot {
+	color:red;
+}   
+.blau {
+	color:#004c93;
+}   
+.button {
+	background-color: #004c93;
+	border: 1px solid rgba(6, 72, 118, 0.7);
+	border-radius: 7px;
+	box-shadow: 0 1px 3px #999999;
+	color: white;
+	display: inline-block;
+	padding: 0 7px 3px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	margin: 5px 23px;
+}
+
+.notation {
+	display:block;
+	color:#404040;
+
+	font-size:14px;
+	padding:2em 0 0 0;
+	margin-left:1.4em;
+}
+.ghbsys{
+	display:block;
+	color:#404040;
+	font-size:14px;
+	padding:0.5em 0 0 0;
+}
+
+legend {
+    background-color: #fff;
+    border: 2px solid #dfe4f2;
+    font-size: 120%;
+    margin: 0 0 0.6em;
+}
+fieldset {
+    margin: 1em 0;
+    padding: 1em;
+    width: 30em;
+    border: 2px outset #dfe4f2;
+	background-color: #dfe4f2;
+}
+
+label {
+    float: left;
+    width: 4.3em;
+    padding-top: 0;
+    text-align: right;
+    margin-right: 1.5em;
+	font-size:120%;
+}
+
+input {
+    display: block;
+    margin-bottom: 1.5em;
+    padding: 0.1em;
+    width: 15em;
+}
+
+caption {
+	text-align:left;
+}
+
+.buttons {
+	margin: 2em 0 0 7em
+}
+
+table.beispiele {
+	border:6px solid #dfe4f2;
+}
+
+tr:nth-child(even) {
+	background-color: #fff;
+}
+tr:nth-child(odd) {
+	background-color: #dfe4f2;
+}
+
+td, th{
+	padding: 0.3em;
+}

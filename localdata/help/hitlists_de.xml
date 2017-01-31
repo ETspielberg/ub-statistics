@@ -1,0 +1,42 @@
+<components>
+<title>
+Die Hitlisten
+</title>
+<description>
+<p> Ähnlich wie bei den Profilen hat man auch bei den Vormerk-Hitlisten die Möglichkeit sich eigene Bereiche zu definieren, für die man die entpsrechenden Informationen erhalten möchte. </p>
+</description>
+<figures>
+<figure>
+<file>
+hitlists.PNG
+</file>
+<caption>
+Die Hitlistenseite mit einem Überblick über die erstellten Hitlisten-Profile.
+</caption>
+</figure>
+</figures>
+<functions>
+<function>
+<name>
+hitlistsDefine
+</name>
+<title>
+Hitlisten-Profil bearbeiten
+</title>
+<description>
+	<p>Über den Button "Neues Profil erstellen" wird man auf eine Eingabemaske weitergeleitet, auf der die Parameter des entsprechenden Profils definieren kann.</p>
+</description>
+</function>
+<function>
+<name>
+nRequests
+</name>
+<title>
+Hitliste
+</title>
+<description>
+	<p> Durch einen Klick auf den Button "Zur Hitliste" gelangt man zu der Hitliste für das gewählte Bestandssegment.</p>
+</description>
+</function>
+</functions>
+</components>

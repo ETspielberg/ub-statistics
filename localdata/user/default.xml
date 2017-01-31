@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>specific preferences for subject</comment>
+	<entry key="subjectID">00</entry>
+	<entry key="systemCode"></entry>
+	<entry key="name"></entry>
+	<entry key="collections"> </entry>
+	<entry key="materials">BOOK</entry>
+	<entry key="yearsToAverage">3</entry>
+	<entry key="minimumYears">3</entry>
+	<entry key="staticBuffer">0.05</entry>
+	<entry key="variableBuffer">0.1</entry>
+	<entry key="threshold">1</entry>
+	<entry key="deletionMailBcc"></entry>
+	<entry key="yearsOfRequests">2</entry>
+	<entry key="minimumDaysOfRequest">5</entry>
+</properties>

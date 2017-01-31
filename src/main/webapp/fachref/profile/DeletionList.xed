@@ -1,0 +1,203 @@
+<html>
+<head>
+				<meta charset="utf-8" />
+				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<!-- The above 3 meta tags *must* come first in the head; any other head 
+					content must come *after* these tags -->
+				<meta name="description" content="" />
+				<meta name="author" content="" />
+				<link rel="icon" href="../img/favicon.ico"/>
+				
+				<title>Aussonderungsliste</title>
+
+				<script type="text/javascript" src="../../js/jquery.min.js"></script>
+				<script type="text/javascript"> jQuery.noConflict(); </script>
+				<script src="../../js/ie-emulation-modes-warning.js"></script>
+				<script src="../../js/ie10-viewport-bug-workaround.js"></script>
+					
+				<link href="../../css/bootstrap.css" rel="stylesheet" />
+				<link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+				<link href="../../css/dashboard.css" rel="stylesheet" />
+				<!-- <link href="../../css/dataTables.bootstrap.min.css" rel="stylesheet" /> -->
+				
+			</head>
+  <body> 
+  
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+								aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="../start">FachRef-Assistent </a>
+							<a class="navbar-brand" href="../profile">::Profile </a>
+							<a class="navbar-brand" href="#">::Aussonderungsliste </a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="../../start">Start</a>
+								</li>
+								<li>
+									<a href="../../../help/profile">Info</a>
+								</li>
+								<li>
+									<a href="../../../protokoll">Protokoll</a>
+								</li>
+								<li>
+									<a href="../profile">Profile</a>
+								</li>
+								
+							</ul>
+						</div><!--/.navbar-collapse -->
+					</div>
+				</nav>
+    
+    
+    <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
+	<xed:source uri="session:{$stockControl}" />
+	<xed:cancel url="/fachref/profile" />
+	  
+	 
+      <xed:bind xpath="/deletionList">
+      <xed:cleanup-rule xpath="analysis" relevant-if="string-length(analysis/finalDeletion/.) &gt; 0" />
+        <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	      <h2 class="sub-header">Aussonderungsliste</h2>
+	      <p> In der folgenden List sind die nutzungsbasierten Aussonderungsvorschläge aufgeführt. In dem Feld "Wie viele?" können die Werte korrigiert werden. Leere Felder werden nicht berücksichtigt.</p>
+	      <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="sendDeletionEmail" >
+                E-Mail erstellen
+              </button>
+			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
+			  <xed:output i18n="common.button.cancel" />
+			  </button>
+	      <table class="table table-striped">
+	       <thead>
+		     <tr>
+			   <th> Signatur </th>
+			   <th> Link </th>
+			   <th> Mittlere Ausleihe</th>
+			   <th> Trend / Jahr </th>
+			   <th> Bestand </th>
+		       <th> Maximale Ausleihe </th>
+		       <th> Vorschlag </th>
+		       <th> Berücksichtigen? </th>
+			   <th> Wie viele? </th>
+			   <th> Kommentar </th>
+			 </tr>
+		   </thead>
+		   <tbody>
+		   
+	         <xed:repeat xpath="analysis" min="1">
+	         <tr>
+                  <td colspan="10">
+                  <xed:bind xpath="mab">
+                     <xed:output />
+                   </xed:bind>
+                  </td>
+                 </tr>
+	         <tr>
+	             <th>
+	               <xed:bind xpath="@shelfmark">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                 <th>
+                     <a href="../ausleihprotokoll?shelfmark={@shelfmark}&amp;collections={../stockControlProperties/collections}&amp;exact=" target="popup">Link</a>
+                    </th>         
+                 <th>
+	             	<xed:bind xpath="meanRelativeLoan">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                 <th>
+	             	<xed:bind xpath="@trend">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                 <th>
+	             	<xed:bind xpath="lastStock">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                 <th>
+	             	<xed:bind xpath="maxLoansAbs">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                 <th>
+	             	<xed:bind xpath="proposedDeletion">
+                     <xed:output />
+                   </xed:bind>
+                 </th>
+                  <th>
+	               <xed:bind xpath="consider" default="false">
+                     <div class="form-group">
+                       <div class="col-md-5">
+                         <input type="checkbox" value="true" />
+                       </div>
+                     </div>
+                   </xed:bind>
+                 </th>
+                 <th>
+	               <xed:bind xpath="finalDeletion">
+                     <div class="form-group">
+                     <div class="col-md-5">
+                        <input id="finalDeletion" class="form-control input-md" type="number" />
+                     </div>
+                     </div>
+                   </xed:bind>
+                 </th>
+                 <th>
+	               <xed:bind xpath="comment">
+                     <div class="form-group form-group-xs">
+                         <input id="comment" class="form-control input-md" type="text" />
+                     </div>
+                   </xed:bind>
+                 </th>
+                 </tr>
+                 
+                 </xed:repeat>
+                 
+                 </tbody>
+                 </table>
+                 </div>
+                 <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-8">
+            <xed:bind xpath="recipient">
+			<div class="col-md-3">
+            <div class="form-group">
+                <select id="recipient" class="form-control">
+                <option value="medienessen@ub.uni-due.de">GWGSW</option>
+                <option value="mnt-stamm@ub.uni-due.de">MNT</option>
+                <option value="fachbib.med@ub.uni-due.de">Klinikum</option>
+                <option value="medienduisburg@ub.uni-due.de">LK</option>
+                <option value="fachbib.mc@ub.uni-due.de">MC</option>
+                <option value="fachbib.ba@ub.uni-due.de">BA</option>
+                </select>
+            </div>
+            </div>
+          </xed:bind>
+          
+              <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="sendDeletionEmail" >
+                E-Mail erstellen
+              </button>
+			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
+			  <xed:output i18n="common.button.cancel" />
+			  </button>
+            </div>
+          </div>
+          
+        </xed:bind>
+    </xed:form>
+  </body>
+</html>
+
+
