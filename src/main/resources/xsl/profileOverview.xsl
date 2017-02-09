@@ -81,15 +81,15 @@
 				<xsl:apply-templates select="profileOverview" />
 				</div>
 				<div class="container">
-				<h2><a href="profile/StockControl_Form.xed?id=default" >Standardprofil </a></h2>
+				<h2 class="sub-header"><a href="profile/StockControl_Form.xed?id=default" >Standardprofil </a></h2>
 				<p>Das <a href="profile/StockControl_Form.xed?id=default" >Standardprofil </a> enthält Startwerte für weitere Profile und wird verwendet, wenn aus dem Ausleihprotokoll heraus Analysen gestartet werden.</p>
 				</div>
 				<div class="container">
-				<h2><a href="profile/StockControl_Form.xed?id=csv">csv-Profil </a></h2>
+				<h2 class="sub-header"><a href="profile/StockControl_Form.xed?id=csv">csv-Profil </a></h2>
 				<p>Das <a href="profile/StockControl_Form.xed?id=csv">csv-Profil </a> wird verwendet, wenn aus aus hochgeladenen Listen heraus Analysen erstellt werden.</p>
 				</div>
 				<div class="container">
-				<h3 class="sub-header">hochgeladene csv-Dateien</h3>
+				<h2 class="sub-header">hochgeladene csv-Dateien</h2>
 					<xsl:apply-templates select="profileOverview/csvFiles" />
 				<div  class="col-md-4 main">
 					<form action="csvUpload" method="post" class="dropzone" enctype="multipart/form-data" />

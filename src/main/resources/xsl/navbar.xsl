@@ -122,13 +122,13 @@
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
 								<li>
-									<a href="index.html">Start</a>
+									<a href="{$WebApplicationBaseURL}index.html">Start</a>
 								</li>
 								<li>
-									<a href="about.html">Info</a>
+									<a href="{$WebApplicationBaseURL}help/start">Info</a>
 								</li>
 								<li class="active">
-									<a href="ausleihprotokoll">Protokoll</a>
+									<a href="{$WebApplicationBaseURL}/protokoll">Protokoll</a>
 								</li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -140,7 +140,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													Anmeldung
-													<form class="form" role="form" method="post" action="userLogging"
+													<form class="form" role="form" method="post" action="{$WebApplicationBaseURL}userLogging"
 														accept-charset="UTF-8" id="login-nav">
 														<input type="hidden" name="type" value="login" />
 														<div class="form-group">

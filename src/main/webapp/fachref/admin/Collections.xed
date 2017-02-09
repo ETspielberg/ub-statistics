@@ -62,12 +62,6 @@
 	 </div>
       <xed:bind xpath="/collections">
         <div class="container">
-	      <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="CollectionDefine" >
-             Speichern
-              </button>
-			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
-			  <xed:output i18n="common.button.cancel" />
-			  </button>
 	      <table class="table table-striped">
 	       <thead>
 		     <tr>

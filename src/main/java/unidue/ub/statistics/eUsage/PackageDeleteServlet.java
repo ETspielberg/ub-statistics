@@ -38,7 +38,11 @@ public class PackageDeleteServlet extends FachRefServlet {
         org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();
         if (currentUser.isAuthenticated()) {
             String name = getParameter(job, "anchor");
-            JournalCollectionDAO.deleteCollection(name);
+            String year = getParameter(job,"year");
+            if(!year.isEmpty())
+                JournalCollectionDAO.deleteCollection(name, Integer.parseInt(year));
+            else
+                JournalCollectionDAO.deleteCollection(name);
             job.getResponse().sendRedirect("packageManagement");
         } else {
             Element output = new Element("error");

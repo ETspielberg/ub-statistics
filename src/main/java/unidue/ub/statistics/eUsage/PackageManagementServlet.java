@@ -46,12 +46,15 @@ public class PackageManagementServlet extends FachRefServlet {
         if (currentUser.isAuthenticated()) {
         	output = prepareOutput(job,"packageManagement","journals","packageManagement");
         	int year = LocalDate.now().getYear();
+        	String yearString = getParameter(job,"year");
+        	if (!yearString.isEmpty())
+        	    year = Integer.parseInt(yearString);
+        	output.setAttribute("year",String.valueOf(year));
             List<JournalCollection> packs = JournalCollectionDAO.getCollections(year);
             if (packs != null) {
             	for (JournalCollection pack : packs)
             		pack.addToOutput(output);
             }
-            sendOutput(job,output);
         } else
             output = new Element("error").addContent((new Element("message")).addContent("error.noPermission"));
         sendOutput(job,output);

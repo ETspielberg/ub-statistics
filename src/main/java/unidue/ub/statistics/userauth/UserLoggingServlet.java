@@ -125,6 +125,7 @@ public class UserLoggingServlet extends MCRServlet {
 			token.setRememberMe(rememberMe);
 
 			try {
+			    String friendlyName;
 				currentUser.login(token);
 
 				// save username in the session
@@ -135,12 +136,13 @@ public class UserLoggingServlet extends MCRServlet {
 					document = (org.jdom2.Document) builder.build(userFile);
 
 					Element rootNode = document.getRootElement();
-					String friendlyName = rootNode.getChild("details").getChild("fullname").getValue();
+					friendlyName = rootNode.getChild("details").getChild("fullname").getValue();
 					currentUser.getSession().setAttribute("friendlyName", friendlyName);
 					currentUser.getSession().setAttribute("email", email);
 					LOGGER.info("User " + friendlyName + " logged in successfully.");
 				} else {
 					LOGGER.info("User [" + currentUser.getPrincipal().toString() + "] logged in successfully.");
+					friendlyName = email;
 				}
 				currentUser.getSession().setAttribute("username", email);
 

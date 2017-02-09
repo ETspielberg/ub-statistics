@@ -45,7 +45,7 @@ body {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: #dfe4f2;
     border-right: 1px solid #eee;
   }
 }
@@ -54,7 +54,7 @@ body {
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
-  margin-left: -20px;
+  margin-left: -10px;
 }
 .nav-sidebar > li > a {
   padding-right: 20px;
@@ -63,8 +63,8 @@ body {
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff;
-  background-color: #428bca;
+  color: #004c93;
+  background-color: #efe4bf;
 }
 
 /*

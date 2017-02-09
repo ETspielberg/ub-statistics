@@ -79,33 +79,34 @@
         <h1>Willkommen beim FachRef-Assistenten, <br />
         <xsl:value-of select="start/@loggedInAs" /></h1>
         <p>Bestandskontrolle und -steuerung bequem von einem Punkt</p>
-        <p><a class="btn btn-primary btn-lg" href="{$WebApplicationBaseURL}forms/User_Form.xed" role="button">Meine Einstellungen &#187;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{$WebApplicationBaseURL}fachref/settings/User_Form.xed" role="button">Meine Einstellungen &#187;</a></p>
       </div>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h2>Protokoll</h2>
           <p> Das Protokoll gibt eine Übersicht über die Nutzung und den Bestand sowohl von einzelnen Auflagen oder über mehrere Auflagen hinweg. Außerdem können auf über das Protokoll nutzungsbasierte Aussonderungsvorschläge erstellt werden.  </p>
           <p><a class="btn btn-success" href="../protokoll" role="button">Zum Ausleihprotokoll &#187;</a></p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h2>Profile</h2>
           <p> Im Bestandspflegemodul können Profile zur Bestandspflege erstellt und verwaltet werden. Auf der Basis dieser Parametersätzen werden Listen von nutzungsbasierte Aussonderungs- und Anschaffungsvorschlägen erstellt. </p>
           <p><a class="btn btn-success" href="profile" role="button">Zu den Profilen &#187;</a></p>
        </div>
-       <div class="col-md-3">
+       <div class="col-md-4">
           <h2>Hitlisten</h2>
           <p> Das experimentelle Bestands-Tool erlaubt einen Vergleich über verschiedenen Ebenen der Aufstellungssystematik hinweg. Hier können für einzelne Bereiche die Nutzung, der Bestand und deren Zusammensetzung visualisiert werden. </p>
           <p><a class="btn btn-success" href="hitlists" role="button">Zu den Hitlisten &#187;</a></p>
         </div>
-       <div class="col-md-3">
+       </div>
+       <div class="row">
+       <div class="col-md-4">
           <h2>e-Journals</h2>
           <p> Das experimentelle Bestands-Tool erlaubt einen Vergleich über verschiedenen Ebenen der Aufstellungssystematik hinweg. Hier können für einzelne Bereiche die Nutzung, der Bestand und deren Zusammensetzung visualisiert werden. </p>
           <p><a class="btn btn-success" href="journals" role="button">Zu den e-Journals &#187;</a></p>
         </div>
-        
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h2>Bestand</h2>
           <p> Das experimentelle Bestands-Tool erlaubt einen Vergleich über verschiedenen Ebenen der Aufstellungssystematik hinweg. Hier können für einzelne Bereiche die Nutzung, der Bestand und deren Zusammensetzung visualisiert werden. </p>
           <p><a class="btn btn-success" href="stock" role="button">Zur Bestandsanalyse &#187;</a></p>

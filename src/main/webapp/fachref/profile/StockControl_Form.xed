@@ -1,300 +1,377 @@
 <html>
-<head>
-				<meta charset="utf-8" />
-				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<!-- The above 3 meta tags *must* come first in the head; any other head 
-					content must come *after* these tags -->
-				<meta name="description" content="" />
-				<meta name="author" content="" />
-				<link rel="icon" href="img/favicon.ico">
-				</link>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- The above 3 meta tags *must* come first in the head; any other head 
+			content must come *after* these tags -->
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="icon" href="img/favicon.ico">
+		</link>
 
-				<title>Profil-Definition</title>
+		<title>Profil-Definition</title>
 
-				<script type="text/javascript" src="../../js/jquery.min.js"></script>
-				<script type="text/javascript"> jQuery.noConflict(); </script>
-				<script src="../../js/ie-emulation-modes-warning.js"></script>
-				<script src="../../js/ie10-viewport-bug-workaround.js"></script>
-					
-				<link href="../../css/bootstrap.css" rel="stylesheet" />
-				<link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
-				<link href="../../css/dashboard.css" rel="stylesheet" />
-				<link href="../../css/description_box.css" rel="stylesheet" />
-				<!-- <link href="../../css/dataTables.bootstrap.min.css" rel="stylesheet" /> -->
-				
-			</head>
-  <body> 
-  
-				<nav class="navbar navbar-inverse navbar-fixed-top">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed"
-								data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-								aria-controls="navbar">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="../start">FachRef-Assistent </a>
-							<a class="navbar-brand" href="../profile">::Profile </a>
-							<a class="navbar-brand" href="#">::Bearbeiten </a>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript"> jQuery.noConflict(); </script>
+		<script src="../../js/ie-emulation-modes-warning.js"></script>
+		<script src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+		<link href="../../css/bootstrap.css" rel="stylesheet" />
+		<link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+		<link href="../../css/dashboard.css" rel="stylesheet" />
+		<link href="../../css/description_box.css" rel="stylesheet" />
+		<!-- <link href="../../css/dataTables.bootstrap.min.css" rel="stylesheet" 
+			/> -->
+
+	</head>
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../start">FachRef-Assistent </a>
+					<a class="navbar-brand" href="../profile">::Profile </a>
+					<a class="navbar-brand" href="#">::Bearbeiten </a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="../profile">Zurück</a>
+						</li>
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+		</nav>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Profil-Definition</h1>
+				<p>Hier werden alle wichtigen Parameter für die Analyse eines
+					Bestandssegmentes eingestellt.
+				</p>
+			</div>
+		</div>
+		<xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor"
+			role="form" class="form-group">
+			<xed:source
+				uri="file:///{$ub.statistics.userDir}/{$username}/stockControl/{$id}.xml" />
+			<xed:source
+				uri="file:///{$ub.statistics.userDir}/{$username}/stockControl/default.xml" />
+
+			<xed:cancel url="/fachref/profile" />
+			<xed:bind xpath="/properties">
+				<div class="container">
+					<h2 class="sub-header">Angaben zum Bereich</h2>
+					<p> Dieser Abschnitt umfasst die notwendigen Angaben zum
+						Fachbereich und der Medienart, die untersucht werden soll.
+					</p>
+					<p> Wird explizit eine Systemstelle angegeben, so erfolgt die
+						Analyse nur für diese. Soll die Analyse für die ganze Fachgruppe
+						durchgeführt werden, bleibt das Feld leer.
+					</p>
+					<p>
+						Ähnlich wie beim Ausleihprotokoll können Einschränkungen
+						hinsichtlich der Standorte vorgenommen werden. Dabei gelten die
+						gleichen
+						<a href="{$WebApplicationBaseURL}about.html" target="popup">Regeln</a>
+						.
+					</p>
+
+					<xed:bind xpath="entry[@key='subjectID']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="subjectID">
+								<xed:output i18n="editor.label.subjectID" />
+							</label>
+							<div class="col-md-5">
+								<select id="subjectID" class="form-control">
+									<option value="00">Systemstellenanalyse</option>
+									<option value="01">Allgemeines</option>
+									<option value="04">Sprach- und Literaturwissenschaften
+									</option>
+									<option value="07">Germanistik</option>
+									<option value="10">Anglistik</option>
+									<option value="13">Romanistik</option>
+									<option value="16">sonstige Philologien</option>
+									<option value="19">Philosophie</option>
+									<option value="22">Psychologie</option>
+									<option value="25">Erziehungswissenschaften</option>
+									<option value="28">Theologie</option>
+									<option value="31">Autoren GW</option>
+									<option value="34">Kunstwissenschaften</option>
+									<option value="34a">Medienwissenschaften</option>
+									<option value="37">Sportwissenschaften</option>
+									<option value="40">Geschichte</option>
+									<option value="43">Geowissenschaften</option>
+									<option value="46a">Sozialwissenschaften </option>
+									<option value="46b">Soziologie </option>
+									<option value="46c">Politikwissenschaften </option>
+									<option value="49">Wirtschaftswissenschaften </option>
+									<option value="52">Rechtswissenscahften </option>
+									<option value="55">Land- und Forstwissenschaften</option>
+									<option value="58">Naturwissenschaften</option>
+									<option value="61">Mathematik </option>
+									<option value="64">Informatik </option>
+									<option value="67">Physik </option>
+									<option value="70">Chemie </option>
+									<option value="73">Astronomie </option>
+									<option value="75">Biologie </option>
+									<option value="77">Fachbibliothek Medizin</option>
+									<option value="77a">Medizin </option>
+									<option value="79">Technik allgemein</option>
+									<option value="82">Bauingenieurwesen </option>
+									<option value="85">Maschinenbau</option>
+									<option value="88">Elektrotechnik </option>
+									<option value="91">Sonstige Gebiete der Technik </option>
+									<option value="94">Turkistik </option>
+									<option value="99">Sonderstandorte</option>
+								</select>
+							</div>
 						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="../profile">Zurück</a>
-								</li>
-							</ul>
-						</div><!--/.navbar-collapse -->
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='systemCode']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="systemCode">
+								<xed:output i18n="editor.label.systemCode" />
+							</label>
+							<div class="col-md-5">
+								<input id="systemCode" placeholder="{i18n:editor.placeholder.opt.systemCode}"
+									class="form-control input-md" type="text" />
+							</div>
+						</div>
+					</xed:bind>
+
+
+					<xed:bind xpath="entry[@key='collections']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="collections">
+								<xed:output i18n="editor.label.collections" />
+							</label>
+							<div class="col-md-5">
+								<input id="collections" placeholder="{i18n:editor.placeholder.opt.collections}"
+									class="form-control input-md" type="text" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='materials']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="materials">
+								<xed:output i18n="editor.label.materials" />
+							</label>
+							<div class="col-md-5">
+								<select id="materials" class="form-control">
+									<option value="BOOK">Bücher</option>
+									<option value="CDROM">CD-ROMs</option>
+								</select>
+							</div>
+						</div>
+					</xed:bind>
+				</div>
+
+				<div class="container">
+					<h2 class="sub-header">Parameter zur Ausleihenanalyse</h2>
+					<p> In diesem Abschnitt werden die grundlegenden Parameter zur
+						Berechnung der nutzungsbasierten Aussonderungsvorschläge
+						vorgegeben. Eine genauere Beschreibung erhält man, wenn die Maus
+						auf den Parameternamen bewegt wird.
+					</p>
+					<xed:bind xpath="entry[@key='yearsToAverage']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="yearsToAverage"
+								data-toggle="tooltip"
+								title="Zeitraum in Jahren, in dem das Ausleihverhalten untersucht wird. Wird beispielsweise 5 eingetragen, so werden die maximale und durchschnittliche Ausleihe für die vergangenen fünf Jahre berechnet.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.yearsToAverage" />
+							</label>
+							<div class="col-md-1">
+								<input id="yearsToAverage" placeholder="{i18n:editor.placeholder.yearsToAverage}"
+									class="form-control input-md {$xed-validation-marker}" type="number" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='minimumYears']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="minimumYears"
+								data-toggle="tooltip"
+								title="Zeitraum, den Exemplare einer Auflage mindestens im Bestand sein müssen, damit Aussonderungen vorgeschlagen werden.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.minimumYears" />
+							</label>
+							<div class="col-md-1">
+								<input id="minimumYears" placeholder="{i18n:editor.placeholder.minimumYears}"
+									class="form-control input-md {$xed-validation-marker}" type="number" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='staticBuffer']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="staticBuffer"
+								data-toggle="tooltip"
+								title="Anzahl an Exemplaren über die maximale Ausleihe hinaus, die nicht ausgesondert werden. Wird eine ganze Zahl angegeben (zum Beispiel 4), so verbleiben mindestens vier Exemplare ZUSÄTZLICH zur maximalen Ausleihe im Bestand. Auch die Angabe von Anteilen (0.1 für 10%) ist möglich.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.staticBuffer" />
+							</label>
+							<div class="col-md-1">
+								<input id="staticBuffer" placeholder="{i18n:editor.placeholder.staticBuffer}"
+									class="form-control input-md {$xed-validation-marker}" type="text" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='variableBuffer']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="variableBuffer"
+								data-toggle="tooltip"
+								title="Anzahl an Exemplaren, die in Abhängigkeit von der durchschnittlichen Ausleihe im Bestand verbleiben. Je höher die durchschnittliche Ausleihe ist, desto mehr Exemplare wverbleiben ZUSÄTZLICH zur maximalen Ausleihe im Bestand. Auch die Angabe von Anteilen (0.2 für 20%) ist möglich.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.variableBuffer" />
+							</label>
+							<div class="col-md-1">
+								<input id="variablePuffer" placeholder="{i18n:editor.placeholder.variableBuffer}"
+									class="form-control input-md {$xed-validation-marker}" type="text" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='threshold']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="threshold"
+								data-toggle="tooltip"
+								title="Schwellwert, ab der ein Aussonderungsvorschlag ausgegeben wird.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.threshold" />
+							</label>
+							<div class="col-md-1">
+								<input id="threshold" placeholder="{i18n:editor.placeholder.threshold}"
+									class="form-control input-md {$xed-validation-marker}" type="number" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='groupedAnalysis']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="groupedAnalysis">
+								<xed:output i18n="editor.label.groupedAnalysis" />
+							</label>
+							<div class="col-md-2">
+								<select id="groupedAnalysis" class="form-control">
+									<option value="true">verwenden</option>
+									<option value="false">nicht verwenden</option>
+								</select>
+							</div>
+						</div>
+					</xed:bind>
+				</div>
+
+				<div class="container">
+					<p> Optional kann eine E-Mail-Adresse angegeben werden, an die (zum
+						Zwecke der Archivierung) eine Kopie der Auftrags-Email geschickt
+						wird.
+					</p>
+					<xed:bind xpath="entry[@key='deletionMailBcc']">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="deletionMailBcc">
+								<xed:output i18n="editor.label.deletionMailBcc" />
+							</label>
+							<div class="col-md-6">
+								<input id="deletionMailBcc" placeholder="{i18n:editor.placeholder.opt.deletionMailBcc}"
+									class="form-control input-md" type="email" />
+							</div>
+						</div>
+					</xed:bind>
+				</div>
+
+
+				<div class="container">
+					<h2 class="sub-header">Parameter zur Vormerk-Analyse</h2>
+					<p> Dieser Abschnitt umfasst die Parameter zur Analyse der
+						Vormerkungen. Eine genauere Beschreibung erhält man, wenn die Maus
+						auf den Parameternamen bewegt wird.
+					</p>
+					<xed:bind xpath="entry[@key='yearsOfRequests']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="yearsOfRequests"
+								data-toggle="tooltip"
+								title="Anzahl an Jahren, in denen Vormerkungen zur Analyse herangezogen werden.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.yearsOfRequests" />
+							</label>
+							<div class="col-md-1">
+								<input id="yearsOfRequests" placeholder="{i18n:editor.placeholder.yearsOfRequests}"
+									class="form-control input-md {$xed-validation-marker}" type="number" />
+							</div>
+						</div>
+					</xed:bind>
+
+					<xed:bind xpath="entry[@key='minimumDaysOfRequest']">
+						<xed:display-validation-message />
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="minimumDaysOfRequest"
+								data-toggle="tooltip"
+								title="Anzahl an Tagen, die ein Buch mindestens vorgemerkt werden muss, um bei der Analyse berücksichtigt zu werden. Dies entspricht der Wartezeit des Nutzers auf sein vorgemerktes Exemplar, die man für annehmbar hält.">
+								<xed:validate display="here" required="true">
+									<span class="validate-error">Wert!</span>
+								</xed:validate>
+								<xed:output i18n="editor.label.minimumDaysOfRequest" />
+							</label>
+							<div class="col-md-1">
+								<input id="minimumDaysOfRequest" placeholder="{i18n:editor.placeholder.minimumDaysOfRequest}"
+									class="form-control input-md {$xed-validation-marker}" type="number" />
+							</div>
+						</div>
+					</xed:bind>
+				</div>
+				<div class="container">
+					<div class="form-group">
+						<input name="id" type="hidden" value="{$id}" />
+						<button id="save" class="btn btn-success" type="submit"
+							xed:target="servlet" xed:href="SCPDefine">
+							<xed:output i18n="common.button.save" />
+						</button>
+						<button id="cancel" class="btn btn-danger" type="submit"
+							xed:target="cancel">
+							<xed:output i18n="common.button.cancel" />
+						</button>
 					</div>
-				</nav>
-    <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
-	<xed:source uri="file:///{$ub.statistics.userDir}/{$username}/stockControl/{$id}.xml" />
-    <xed:source uri="file:///{$ub.statistics.userDir}/{$username}/stockControl/default.xml" /> 
-	  
-	  <xed:cancel url="/fachref/profile" />
-        <xed:bind xpath="/properties">
-        <div class="col-sm-9 col-md-10 col-md-offset-1 main">
-	      <h2 class="sub-header">Angaben zum Bereich</h2>
-	      <p> Dieser Abschnitt umfasst die notwendigen Angaben zum Fachbereich und der Medienart, die untersucht werden soll.</p>
-	      <p> Wird explizit eine Systemstelle angegeben, so erfolgt die Analyse nur für diese. Soll die Analyse für die ganze Fachgruppe durchgeführt werden, bleibt das Feld leer.</p>
-	      <p> Ähnlich wie beim Ausleihprotokoll können Einschränkungen hinsichtlich der Standorte vorgenommen werden. Dabei gelten die gleichen <a href="{$WebApplicationBaseURL}about.html" target="popup">Regeln</a>.</p>
-
-		  <xed:bind xpath="entry[@key='subjectID']">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="subjectID">
-                <xed:output i18n="editor.label.subjectID" />
-              </label>
-              <div class="col-md-5">
-                <select id="subjectID" class="form-control">
-                  <option value="00">Systemstellenanalyse</option>
-                  <option value="01">Allgemeines</option>
-                  <option value="04">Sprach- und Literaturwissenschaften</option>
-                  <option value="07">Germanistik</option>
-                  <option value="10">Anglistik</option>
-                  <option value="13">Romanistik</option>
-                  <option value="16">sonstige Philologien</option>
-                  <option value="19">Philosophie</option>
-                  <option value="22">Psychologie</option>
-                  <option value="25">Erziehungswissenschaften</option>
-                  <option value="28">Theologie</option>
-                  <option value="31">Autoren GW</option>
-                  <option value="34">Kunstwissenschaften</option>
-                  <option value="34a">Medienwissenschaften</option>
-                  <option value="37">Sportwissenschaften</option>
-                  <option value="40">Geschichte</option>
-                  <option value="43">Geowissenschaften</option>
-                  <option value="46a">Sozialwissenschaften </option>
-                  <option value="46b">Soziologie </option>
-                  <option value="46c">Politikwissenschaften </option>
-                  <option value="49">Wirtschaftswissenschaften </option>
-                  <option value="52">Rechtswissenscahften </option>
-                  <option value="55">Land- und Forstwissenschaften</option>
-                  <option value="58">Naturwissenschaften</option>
-                  <option value="61">Mathematik </option>
-                  <option value="64">Informatik </option>
-                  <option value="67">Physik </option>
-                  <option value="70">Chemie </option>
-                  <option value="73">Astronomie </option>
-                  <option value="75">Biologie </option>
-                  <option value="77">Fachbibliothek Medizin</option>
-                  <option value="77a">Medizin </option>
-                  <option value="79">Technik allgemein</option>
-                  <option value="82">Bauingenieurwesen </option>
-                  <option value="85">Maschinenbau</option>
-                  <option value="88">Elektrotechnik </option>
-                  <option value="91">Sonstige Gebiete der Technik </option>
-                  <option value="94">Turkistik </option>
-                  <option value="99">Sonderstandorte</option>
-                </select>
-              </div>
-            </div>
-          </xed:bind>
-		  
-          <xed:bind xpath="entry[@key='systemCode']">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="systemCode">
-                <xed:output i18n="editor.label.systemCode" />
-              </label>
-              <div class="col-md-5">
-                <input id="systemCode" placeholder="{i18n:editor.placeholder.opt.systemCode}" class="form-control input-md" type="text" />
-              </div>
-            </div>
-          </xed:bind>
-          
-	      
-          <xed:bind xpath="entry[@key='collections']">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="collections">
-                <xed:output i18n="editor.label.collections" />
-              </label>
-              <div class="col-md-5">
-               <input id="collections" placeholder="{i18n:editor.placeholder.opt.collections}" class="form-control input-md" type="text" />
-              </div>
-            </div>
-          </xed:bind>
-          
-          <xed:bind xpath="entry[@key='materials']">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="materials">
-                <xed:output i18n="editor.label.materials" />
-              </label>
-              <div class="col-md-5">
-                <select id="materials" class="form-control">
-                  <option value="BOOK">Bücher</option>
-                  <option value="CDROM">CD-ROMs</option>
-                </select>
-              </div>
-            </div>
-          </xed:bind>
-          </div>
-		  
-		  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
-	      <h2 class="sub-header">Parameter zur Ausleihenanalyse</h2>
-	      <p> In diesem Abschnitt werden die grundlegenden Parameter zur Berechnung der nutzungsbasierten Aussonderungsvorschläge vorgegeben. Eine genauere Beschreibung erhält man, wenn die Maus auf den Parameternamen bewegt wird.</p>
-		  <xed:bind xpath="entry[@key='yearsToAverage']">
-		  <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="yearsToAverage" data-toggle="tooltip" title="Zeitraum in Jahren, in dem das Ausleihverhalten untersucht wird. Wird beispielsweise 5 eingetragen, so werden die maximale und durchschnittliche Ausleihe für die vergangenen fünf Jahre berechnet.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.yearsToAverage" />
-              </label>
-              <div class="col-md-1">
-                <input id="yearsToAverage" placeholder="{i18n:editor.placeholder.yearsToAverage}" class="form-control input-md {$xed-validation-marker}" type="number" />
-              </div>
-            </div>
-          </xed:bind>
-		  
-		  <xed:bind xpath="entry[@key='minimumYears']">
-		   <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="minimumYears" data-toggle="tooltip" title="Zeitraum, den Exemplare einer Auflage mindestens im Bestand sein müssen, damit Aussonderungen vorgeschlagen werden.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.minimumYears" />
-              </label>
-              <div class="col-md-1">
-                <input id="minimumYears" placeholder="{i18n:editor.placeholder.minimumYears}" class="form-control input-md {$xed-validation-marker}" type="number" />
-              </div>
-            </div>
-          </xed:bind>
-		  
-		  <xed:bind xpath="entry[@key='staticBuffer']">
-		   <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="staticBuffer" data-toggle="tooltip" title="Anzahl an Exemplaren über die maximale Ausleihe hinaus, die nicht ausgesondert werden. Wird eine ganze Zahl angegeben (zum Beispiel 4), so verbleiben mindestens vier Exemplare ZUSÄTZLICH zur maximalen Ausleihe im Bestand. Auch die Angabe von Anteilen (0.1 für 10%) ist möglich.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.staticBuffer" />
-              </label>
-              <div class="col-md-1">
-                <input id="staticBuffer" placeholder="{i18n:editor.placeholder.staticBuffer}" class="form-control input-md {$xed-validation-marker}" type="text" />
-              </div>
-            </div>
-          </xed:bind>
-		  
-		  <xed:bind xpath="entry[@key='variableBuffer']">
-		   <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="variableBuffer" data-toggle="tooltip" title="Anzahl an Exemplaren, die in Abhängigkeit von der durchschnittlichen Ausleihe im Bestand verbleiben. Je höher die durchschnittliche Ausleihe ist, desto mehr Exemplare wverbleiben ZUSÄTZLICH zur maximalen Ausleihe im Bestand. Auch die Angabe von Anteilen (0.2 für 20%) ist möglich.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.variableBuffer" />
-              </label>
-              <div class="col-md-1">
-                <input id="variablePuffer" placeholder="{i18n:editor.placeholder.variableBuffer}" class="form-control input-md {$xed-validation-marker}" type="text" />
-              </div>
-            </div>
-          </xed:bind>
-          
-          <xed:bind xpath="entry[@key='threshold']">
-           <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="threshold" data-toggle="tooltip" title="Schwellwert, ab der ein Aussonderungsvorschlag ausgegeben wird.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.threshold" />
-              </label>
-              <div class="col-md-1">
-                <input id="threshold" placeholder="{i18n:editor.placeholder.threshold}" class="form-control input-md {$xed-validation-marker}" type="number" />
-              </div>
-            </div>
-          </xed:bind>
-          
-          <xed:bind xpath="entry[@key='groupedAnalysis']">
-            <div class="form-group">
-             <label class="col-md-4 control-label" for="groupedAnalysis">
-                <xed:output i18n="editor.label.groupedAnalysis" />
-              </label>
-              <div class="col-md-2">
-                <select id="groupedAnalysis" class="form-control">
-                  <option value="true">verwenden</option>
-                  <option value="false">nicht verwenden</option>
-                </select>
-              </div>
-            </div>
-          </xed:bind>
-          </div>
-          
-          <div class="col-sm-9 col-md-10 col-md-offset-1 main">
-		  <p> Optional kann eine E-Mail-Adresse angegeben werden, an die (zum Zwecke der Archivierung) eine Kopie der Auftrags-Email geschickt wird.</p>
-		  <xed:bind xpath="entry[@key='deletionMailBcc']">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="deletionMailBcc">
-                <xed:output i18n="editor.label.deletionMailBcc" />
-              </label>
-              <div class="col-md-6">
-                <input id="deletionMailBcc" placeholder="{i18n:editor.placeholder.opt.deletionMailBcc}" class="form-control input-md" type="email" />
-              </div>
-            </div>
-          </xed:bind>
-          </div>
-		  
-
-		  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
-	      <h2 class="sub-header">Parameter zur Vormerk-Analyse</h2>
-	      <p> Dieser Abschnitt umfasst die Parameter zur Analyse der Vormerkungen. Eine genauere Beschreibung erhält man, wenn die Maus auf den Parameternamen bewegt wird. </p>
-		  <xed:bind xpath="entry[@key='yearsOfRequests']">
-		   <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="yearsOfRequests" data-toggle="tooltip" title="Anzahl an Jahren, in denen Vormerkungen zur Analyse herangezogen werden.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.yearsOfRequests" />
-              </label>
-              <div class="col-md-1">
-                <input id="yearsOfRequests" placeholder="{i18n:editor.placeholder.yearsOfRequests}" class="form-control input-md {$xed-validation-marker}" type="number" />
-              </div>
-            </div>
-          </xed:bind>
-          
-          <xed:bind xpath="entry[@key='minimumDaysOfRequest']">
-		   <xed:display-validation-message />
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="minimumDaysOfRequest" data-toggle="tooltip" title="Anzahl an Tagen, die ein Buch mindestens vorgemerkt werden muss, um bei der Analyse berücksichtigt zu werden. Dies entspricht der Wartezeit des Nutzers auf sein vorgemerktes Exemplar, die man für annehmbar hält.">
-                <xed:validate display="here" required="true"><span class="validate-error">Wert!</span></xed:validate><xed:output i18n="editor.label.minimumDaysOfRequest" />
-              </label>
-              <div class="col-md-1">
-                <input id="minimumDaysOfRequest" placeholder="{i18n:editor.placeholder.minimumDaysOfRequest}" class="form-control input-md {$xed-validation-marker}" type="number" />
-              </div>
-            </div>
-          </xed:bind>
-		  
-		  
-          </div>
-          
-		  <div class="form-group">
-            <label class="col-md-4 control-label" for="save"></label>
-            <div class="col-md-8">
-            <input name="id" type="hidden" value="{$id}" />
-              <button id="save" class="btn btn-success" type="submit" xed:target="servlet" xed:href="SCPDefine" >
-                <xed:output i18n="common.button.save" />
-              </button>
-			  <button id="cancel" class="btn btn-danger" type="submit" xed:target="cancel">
-			  <xed:output i18n="common.button.cancel" />
-			  </button>
-			  </div>
-          </div>
-      </xed:bind>
-    </xed:form>
-    <script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js" />
-	<script src="{$WebApplicationBaseURL}js/bootstrap.min.js"/>
-	<script>
-		$('[data-toggle="tooltip"]').tooltip(); 
-	</script>
-  </body>
+				</div>
+			</xed:bind>
+		</xed:form>
+		<script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js" />
+		<script src="{$WebApplicationBaseURL}js/bootstrap.min.js" />
+		<script>
+			$('[data-toggle="tooltip"]').tooltip();
+		</script>
+	</body>
 </html>
 
 

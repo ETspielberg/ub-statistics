@@ -33,6 +33,8 @@ public class SendDeletionEmailServlet extends MCRServlet {
 	private static final long serialVersionUID = 1L;
 
 	private final static String userDir;
+	
+	private final static String archiveDir;
 
 	private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -43,6 +45,7 @@ public class SendDeletionEmailServlet extends MCRServlet {
 	static {
 		MCRConfiguration config = MCRConfiguration.instance();
 		userDir = config.getString("ub.statistics.userDir");
+		archiveDir = config.getString("ub.statistics.archiveDir");
 	}
 
 	/**
@@ -128,10 +131,8 @@ public class SendDeletionEmailServlet extends MCRServlet {
 			job.getResponse().sendRedirect(uriStr);
 
 			String filenameArchive = "Aussonderung_" + stockControl + TODAY.format(dtf);
-			File archiveDir = new File(userDir + "/archive");
-			if (!archiveDir.exists())
-				archiveDir.mkdirs();
-			File archiveFile = new File(userDir + "/archive", filenameArchive);
+			
+			File archiveFile = new File(archiveDir, filenameArchive);
 			new MCRJDOMContent(xmlArchive).sendTo(archiveFile);
 		}
 	}

@@ -65,7 +65,9 @@
 				<p>Im Paket <xsl:value-of select="@anchor" /> enthaltene Zeitschriften (lt. EZB)</p>
 				</div>
 				</div>
+				<div class="container">
 				<xsl:apply-templates select="journalTitleManagement" />
+				</div>
 				<script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js" />
 				<script src="{$WebApplicationBaseURL}js/bootstrap.min.js"/>
 			</body>
@@ -74,7 +76,7 @@
 
 	<xsl:template match="journalTitleManagement">
 		<xsl:choose>
-		<xsl:when test="count(journalTitle) &gt; 0">
+		<xsl:when test="journalTitle">
 		<div class="table-responsive">
 			<table id="sortableTable" class="table table-striped">
 				<thead>

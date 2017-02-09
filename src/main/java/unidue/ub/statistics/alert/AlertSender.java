@@ -92,7 +92,7 @@ public class AlertSender implements Job {
                 send = false;
                 for (NRequests nRequest : nRequests) {
                     text = "Hallo,\n\n laut FachRef-Assistent wurde der Schwellenwert für Vormerkungen überschritten:\n \n";
-                    if (nRequest.getRatio() > ac.getThresholdQuotient()) {
+                    if (nRequest.getRatio() > ac.getThresholdQuotientAlert()) {
                         addToEmail(nRequest);
                         send = true;
                     }

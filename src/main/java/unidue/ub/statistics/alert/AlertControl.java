@@ -35,7 +35,7 @@ public class AlertControl {
 	
 	private Double thresholdQuotient;
 	
-	private Integer thresholdDuration;
+	private Double thresholdQuotientAlert;
 	
 	private final static String userDir;
 
@@ -55,7 +55,7 @@ public class AlertControl {
 		performAlert = false;
 		performReader = false;
 		thresholdQuotient = 0.0;
-		thresholdDuration = 1;
+		thresholdQuotientAlert = 0.0;
 	}
 
 	/**
@@ -173,19 +173,19 @@ public class AlertControl {
 	}
 	
 	/**
-	 * returns the the threshold for the duration of the requests
+	 * returns the the threshold for the quotient (number of requested items / number of lendable items) for the alerting service
 	 * @return the thresholdDuration
 	 */
-	public Integer getThresholdDuration() {
-		return thresholdDuration;
+	public Double getThresholdQuotientAlert() {
+		return thresholdQuotientAlert;
 	}
 
 	/**
-	 * sets the the threshold for the duration of the requests
+	 * sets the the threshold for the quotient (number of requested items / number of lendable items) for the alerting service
 	 * @param thresholdDuration the thresholdDuration to set
 	 */
-	public void setThresholdDuration(Integer thresholdDuration) {
-		this.thresholdDuration = thresholdDuration;
+	public void setThresholdDuration(Double thresholdQuotientAlert) {
+		this.thresholdQuotientAlert = thresholdQuotientAlert;
 	}
 	
 	/**
@@ -212,8 +212,8 @@ public class AlertControl {
         		name = "request based ad hoc look up";
         		if (!getParameter(req,"thresholdQuotient").isEmpty())
         			thresholdQuotient = Double.parseDouble(getParameter(req,"thresholdQuotient"));
-        		if (!getParameter(req,"thresholdDuration").isEmpty())
-        			thresholdDuration = Integer.parseInt(getParameter(req,"thresholdDuration"));
+        		if (!getParameter(req,"thresholdQuotientAlert").isEmpty())
+        		    thresholdQuotientAlert = Double.parseDouble(getParameter(req,"thresholdQuotientAlert"));
         	}
         }
         return this;
@@ -238,10 +238,10 @@ public class AlertControl {
         else 
             notationRange = NotationDAO.getNotationsRange(subjectID);
     	name = alertControlXML.getChildText("name");
-    	performAlert = alertControlXML.getChild("alerting").getChildText("performAlert").equals("true");
-    	performReader = alertControlXML.getChild("reader").getChildText("performReader").equals("true");
+    	performAlert = alertControlXML.getChildText("performAlert").equals("true");
+    	performReader = alertControlXML.getChildText("performReader").equals("true");
     	try {
-    		String thresholdQuotientString = alertControlXML.getChild("alerting").getChildText("thresholdQuotient").trim();
+    		String thresholdQuotientString = alertControlXML.getChildText("thresholdQuotient").trim();
     		if (thresholdQuotientString.contains(","))
     			thresholdQuotientString = thresholdQuotientString.replace(",", ".");
 		    thresholdQuotient = Double.parseDouble(thresholdQuotientString);
@@ -249,9 +249,12 @@ public class AlertControl {
     	    thresholdQuotient = 0.0;
     	}
     	try {
-		thresholdDuration = Integer.parseInt(alertControlXML.getChild("alerting").getChildText("thresholdDuration").trim());
+    	    String thresholdQuotientAlertString = alertControlXML.getChildText("thresholdQuotientAlert").trim();
+            if (thresholdQuotientAlertString.contains(","))
+                thresholdQuotientAlertString = thresholdQuotientAlertString.replace(",", ".");
+            thresholdQuotient = Double.parseDouble(thresholdQuotientAlertString);
     	} catch (Exception e2) {
-    	    thresholdDuration = 0;
+    	    thresholdQuotientAlert = 0.0;
     	}
 		return this;
 	}
@@ -276,7 +279,7 @@ public class AlertControl {
         alertControlElement.addContent(new Element("performAlert").addContent(String.valueOf(performAlert)));
         alertControlElement.addContent(new Element("performReader").addContent(String.valueOf(performReader)));
         alertControlElement.addContent(new Element("thresholdQuotient").addContent(String.valueOf(thresholdQuotient)));
-        alertControlElement.addContent(new Element("thresholdDuration").addContent(String.valueOf(thresholdDuration)));
+        alertControlElement.addContent(new Element("thresholdQuotientAlert").addContent(String.valueOf(thresholdQuotientAlert)));
         parent.addContent(alertControlElement);
     }
 

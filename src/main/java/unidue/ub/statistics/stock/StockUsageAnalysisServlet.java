@@ -215,10 +215,14 @@ public class StockUsageAnalysisServlet extends FachRefServlet {
 			}
 			link = job.getRequest().getRequestURL().toString();
 		}
+		try {
 		addJSONObject2Array(link, json);
 		addOverallStats(topLevel);
 		output.addContent(json);
 		output.addContent(topLevel);
+		} catch (Exception e2) {
+			output.addContent(new Element("message").setText("noDataFound"));
+		}
 		em.close();
 		sendOutput(job,output);
 		LOGGER.info("Finished output.");

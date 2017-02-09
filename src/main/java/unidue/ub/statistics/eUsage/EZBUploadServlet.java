@@ -67,7 +67,7 @@ public class EZBUploadServlet extends MCRServlet {
 			readCsv(input,year);
 			
 		}
-		job.getResponse().sendRedirect("/eMedia/overview");
+		job.getResponse().sendRedirect("/fachref/eMedia");
 	}
 
 	private void readCsv(InputStream csvFile,int year) throws SQLException {
@@ -143,6 +143,7 @@ public class EZBUploadServlet extends MCRServlet {
 		LOGGER.info("found " + journals.size() + " journals with " + journalTitles.size() + " individual titles grouped in " + numberOfCollections + " collections");
         JournalTitleDAO.persistJournals(journalTitles);
 		JournalCollectionDAO.persistCollections(collections);
+		JournalDAO.deleteJournals();
 		JournalDAO.persistJournals(journals);
 	}
 	

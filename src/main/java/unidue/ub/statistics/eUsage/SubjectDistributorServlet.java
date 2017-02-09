@@ -62,7 +62,6 @@ public class SubjectDistributorServlet extends FachRefServlet {
             double totalPrice = 0.0;
             Hashtable<String, Integer> subjects = new Hashtable<String, Integer>();
             Hashtable<String, List<String>> journalsPerSubject = new Hashtable<String, List<String>>();
-            em.getTransaction().begin();
             List<JournalTitle> journalTitles = collection.getJournalsForYear(em,collection.getYear());
             totalPrice = collection.getPrice();
             if (journalTitles == null) {

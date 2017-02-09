@@ -250,6 +250,29 @@ public class JournalCollectionDAO {
         tx.commit();
         em.close();
     }
+	 
+	 /**
+	     * deletes the journal collections with a given anchor and year from the database.
+	     * @param anchor the anchor of the journal collection
+	     * @param year the year to be deleted
+	     * 
+	     */
+	     public static void deleteCollection(String anchor, int year) {
+	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sushiData");
+	        EntityManager em = emf.createEntityManager();
+	        EntityTransaction tx = em.getTransaction();
+	        tx.begin();
+	        CriteriaBuilder cb = em.getCriteriaBuilder();
+	        CriteriaDelete<JournalCollection> deletePacks = cb.createCriteriaDelete(JournalCollection.class);
+	        Root<JournalCollection> c = deletePacks.from(JournalCollection.class);
+	        List<Predicate> predicates = new ArrayList<>();
+	        predicates.add(cb.equal(c.<String>get("anchor"), anchor));
+	        predicates.add(cb.equal(c.<Integer>get("year"), year));
+	        deletePacks.where(predicates.toArray(new Predicate[] {}));
+	        em.createQuery(deletePacks).executeUpdate();
+	        tx.commit();
+	        em.close();
+	    }
     
 	 /**
 	  * persists the given journal collection to the database.

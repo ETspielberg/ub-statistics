@@ -57,39 +57,41 @@
      </div>
      </div>
      <div class="container">
+     <div class="row">
      	<div class="col-md-4">
           <h2>Jahre</h2>
           <p>Erweitert den intialen Upload auf den verfügbaren Zeitbereich</p>
-          <p><a class="btn btn-success" href="yearExtender" role="button">Jahre ausdehnen &#187;</a></p>
+          <p><a class="btn btn-success" href="eMedia/yearExtender" role="button">Jahre ausdehnen &#187;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Preise</h2>
           <p>Fügt die Preise für Pakete und Zeitschriften hinzu</p>
-          <p><a class="btn btn-success" href="priceExtender" role="button">Preise hinzufügen &#187;</a></p>
+          <p><a class="btn btn-success" href="eMedia/priceExtender" role="button">Preise hinzufügen &#187;</a></p>
         </div>
         <div class="col-md-4">
           <h2>SNIP</h2>
           <p>Fügt den Source Normalized Impact per Paper (SNIP) hinzu</p>
-          <p><a class="btn btn-success" href="snipExtender" role="button">SNIP hinzufügen &#187;</a></p>
+          <p><a class="btn btn-success" href="eMedia/snipExtender" role="button">SNIP hinzufügen &#187;</a></p>
        </div>
        </div>
-       <div class="container">
+       <div class="row">
         <div class="col-md-4">
           <h2>SUSHI</h2>
           <p> Management von SUSHI-Accounts </p>
-          <p><a class="btn btn-success" href="publisherManagement" role="button">Zu den SUSHI-Accounts &#187;</a></p>
+          <p><a class="btn btn-success" href="eMedia/publisherManagement" role="button">Zu den SUSHI-Accounts &#187;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Verteilung</h2>
           <p> Berechnet die Verteilung von Nutzungen auf die Fächer </p>
-          <p><a class="btn btn-success" href="subjectDistributor" role="button">Verteilung berechnen &#187;</a></p>
+          <p><a class="btn btn-success" href="eMedia/subjectDistributor" role="button">Verteilung berechnen &#187;</a></p>
         </div>
         </div>
-        <div class="container">
+        <div class="row">
         <div  class="col-md-12 main">
         <h2>EZB-Datei-Upload</h2>
-			<form action="ezbUpload" method="post" class="dropzone" enctype="multipart/form-data" />
+			<form action="eMedia/ezbUpload" method="post" class="dropzone" enctype="multipart/form-data" />
 		</div>
+        </div>
         </div>
 </xsl:template>
 		

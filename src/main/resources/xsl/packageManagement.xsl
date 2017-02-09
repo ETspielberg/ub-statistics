@@ -20,6 +20,10 @@
 	<xsl:param name="RequestURL" />
 	<xsl:param name="CurrentLang" />
 	<xsl:param name="DefaultLang" />
+	
+	<xsl:param name="year">
+	<xsl:value-of select="packageManagement/@year" />
+	</xsl:param>
 
 	<!-- ======== HTML Seitenlayout ======== -->
 
@@ -134,17 +138,17 @@
 			<th>
 				<span class="links">
 					<a class="btn btn-sm btn-success"
-						href="{$WebApplicationBaseURL}journals/journalUsage?issn={$anchor}"
+						href="{$WebApplicationBaseURL}fachref/journals/journalUsage?issn={$anchor}"
 						role="button" target="popup">Zur Nutzung</a>
 				</span>
 				<span class="links">
 					<a class="btn btn-sm btn-primary"
-						href="{$WebApplicationBaseURL}journals/journalTitleManagement?anchor={$anchor}"
+						href="{$WebApplicationBaseURL}fachref/journals/journalTitleManagement?anchor={$anchor}&amp;year={$year}"
 						role="button" target="popup">Zum Paketinhalt</a>
 				</span>
 				<span class="links">
 					<a class="btn btn-sm btn-alert"
-						href="{$WebApplicationBaseURL}journals/packageDelete?anchor={$anchor}"
+						href="{$WebApplicationBaseURL}fachref/journals/packageDelete?anchor={$anchor}&amp;year={$year}"
 						role="button" target="popup">Löschen</a>
 				</span>
 			</th>

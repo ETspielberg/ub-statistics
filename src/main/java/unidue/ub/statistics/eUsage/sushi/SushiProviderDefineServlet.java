@@ -57,10 +57,15 @@ public class SushiProviderDefineServlet extends FachRefServlet {
 		name = getParameter(job, "name");
 		if (PublisherDAO.getPublisher(name) == null) {
 		    buildPublisherFromRequest(job);
-            getSushiData();
-            registerScheduler();
-            job.getResponse().sendRedirect(MCRFrontendUtil.getBaseURL() + "fachref/eMedia/publisherManagement");
-		} else {
+            try {
+                getSushiData();
+                registerScheduler();
+                job.getResponse().sendRedirect(MCRFrontendUtil.getBaseURL() + "fachref/eMedia/publisherManagement");
+            } catch (Exception e) {
+                Element output = new Element("error").addContent((new Element("message")).addContent("error.noSushiConnection"));
+                sendOutput(job,output);
+            }
+ 		} else {
 				Element output = new Element("error").addContent((new Element("message")).addContent("error.publisherExistAlready"));
 				sendOutput(job,output);
 

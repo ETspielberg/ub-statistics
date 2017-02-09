@@ -39,6 +39,7 @@ public class IgnoredManagementServlet extends FachRefServlet {
         if (currentUser.hasRole("fachreferent")) {
         	output = prepareOutput(job,"ignoredManagement","profile","blacklist");
             List<Ignored> allIgnored = IgnoredDAO.listIgnored();
+            LOGGER.info("found " + allIgnored.size() + " entries on blacklist");
             if (allIgnored != null) {
                 for (Ignored ignored : allIgnored) {
                     ignored.addToOutput(output);

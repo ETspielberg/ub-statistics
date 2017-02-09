@@ -5,10 +5,10 @@
 	xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
 	xmlns:mabxml="http://www.ddb.de/professionell/mabxml/mabxml-1.xsd"
 	exclude-result-prefixes="xsl xalan i18n mabxml">
-	
+
 	<xsl:include href="mabxml-isbd-reduced.xsl" />
 	<xsl:include href="navbar.xsl" />
-	
+
 	<xsl:output encoding="UTF-8" method="html" media-type="text/html"
 		doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
 		doctype-system="http://www.w3.org/TR/html401/loose.dtd" indent="yes"
@@ -45,7 +45,7 @@
 	<xsl:variable name="thresholdDuration">
 		<xsl:value-of select="/nRequests/reader/thresholdDuration/." />
 	</xsl:variable>
-	
+
 	<xsl:variable name="page.title">
 		<xsl:text>Hitliste </xsl:text>
 		<xsl:value-of select="$name" />
@@ -67,39 +67,67 @@
 
 				<title>FachRef-Assistent :: Vormerk-Hitliste</title>
 
-				<script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery/${version.jquery}/jquery.min.js"></script>
+				<script type="text/javascript"
+					src="{$WebApplicationBaseURL}webjars/jquery/${version.jquery}/jquery.min.js"></script>
 				<script type="text/javascript"> jQuery.noConflict(); </script>
-				<script type="text/javascript" src="{$WebApplicationBaseURL}webjars/jquery-ui/${version.jquery}/jquery-ui.min.js"></script>
-				<script	type="text/javascript" src="{$WebApplicationBaseURL}webjars/datatables/${version.datatables}/js/jquery.dataTables.min.js" language="javascript"></script>
-				<!--  <script type="text/javascript" src="{$WebApplicationBaseURL}js/dataTables.bootstrap.min.js"></script> -->
-				<script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js" ></script>
+				<script type="text/javascript"
+					src="{$WebApplicationBaseURL}webjars/jquery-ui/${version.jquery}/jquery-ui.min.js"></script>
+				<script type="text/javascript"
+					src="{$WebApplicationBaseURL}webjars/datatables/${version.datatables}/js/jquery.dataTables.min.js"
+					language="javascript"></script>
+				<!-- <script type="text/javascript" src="{$WebApplicationBaseURL}js/dataTables.bootstrap.min.js"></script> -->
+				<script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js"></script>
 				<script src="{$WebApplicationBaseURL}js/ie-emulation-modes-warning.js"></script>
 				<script src="{$WebApplicationBaseURL}js/ie10-viewport-bug-workaround.js"></script>
-				
-					
-				<link href="{$WebApplicationBaseURL}webjars/jquery-ui/${version.jquery}/jquery-ui.css" rel="stylesheet" />
+
+
+				<link
+					href="{$WebApplicationBaseURL}webjars/jquery-ui/${version.jquery}/jquery-ui.css"
+					rel="stylesheet" />
 				<link href="{$WebApplicationBaseURL}css/bootstrap.css" rel="stylesheet" />
-				<link href="{$WebApplicationBaseURL}css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+				<link href="{$WebApplicationBaseURL}css/ie10-viewport-bug-workaround.css"
+					rel="stylesheet" />
 				<link href="{$WebApplicationBaseURL}css/dashboard.css" rel="stylesheet" />
-				<link href="{$WebApplicationBaseURL}css/dataTables.bootstrap.min.css" rel="stylesheet" />
-				
-				<link rel="icon" href="{$WebApplicationBaseURL}img/favicon.ico"/>
+				<link href="{$WebApplicationBaseURL}css/dataTables.bootstrap.min.css"
+					rel="stylesheet" />
+
+				<link rel="icon" href="{$WebApplicationBaseURL}img/favicon.ico" />
 			</head>
 			<body>
 				<xsl:apply-templates select="nRequests/navbar" />
 				<div class="jumbotron">
-				<div class="container">
-				<h1>Hitliste</h1>
-				<p>Die Hitliste der am meisten vorgemerkten Titel</p>
+					<div class="container">
+						<h1>Hitliste</h1>
+						<xsl:choose>
+							<xsl:when test="nRequests/alert">
+								<p>
+									Die Hitliste der am meisten vorgemerkten Titel für den Bereich
+									<xsl:value-of select="nRequests/alert/name/." />
+								</p>
+								<xsl:if test="nRequests/nRequest">
+									<p>Um bibliographische Informationen zu den einzelnen Einträgen
+										zu erhalten, bitte die Maus über die Signatur bewegen.</p>
+								</xsl:if>
+							</xsl:when>
+							<xsl:otherwise>
+								<p>
+									Die Hitliste der am meisten vorgemerkten Titel
+								</p>
+								<xsl:if test="nRequests/nRequest">
+									<p>Um bibliographische Informationen zu den einzelnen Einträgen
+										zu erhalten, bitte die Maus über die Signatur bewegen.</p>
+								</xsl:if>
+							</xsl:otherwise>
+						</xsl:choose>
+					</div>
 				</div>
-				</div>
 				<div class="container">
-				<xsl:apply-templates select="nRequests" />
+					<xsl:apply-templates select="nRequests" />
 				</div>
 				<script type="text/javascript" src="{$WebApplicationBaseURL}js/DT-bootstrap.js" />
-				<script src="{$WebApplicationBaseURL}js/bootstrap.min.js"/>
+				<script src="{$WebApplicationBaseURL}js/bootstrap.min.js" />
 				<script>
-				$('[data-toggle="tooltip"]').tooltip(); 
+					$('[data-toggle="tooltip"]').tooltip();
 				</script>
 			</body>
 		</html>
@@ -107,80 +135,75 @@
 
 	<xsl:template match="nRequests">
 		<xsl:choose>
-		<xsl:when test="count(nRequest) &gt; 0">
-		<xsl:call-template name="list" />
-		</xsl:when>
-		<xsl:otherwise>
-		<p>Es wurden keine Titel zur mit Vormerkungen gefunden. Geben Sie entweder eine neue Systemstelle ein oder wählen sie ein anderes Profil.</p>
-		</xsl:otherwise>
+			<xsl:when test="count(nRequest) &gt; 0">
+				<xsl:call-template name="list" />
+			</xsl:when>
+			<xsl:otherwise>
+				<p>Es wurden keine Titel zur mit Vormerkungen gefunden. Geben Sie
+					entweder eine neue Systemstelle ein oder wählen sie ein anderes
+					Profil.</p>
+			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template name="list">
-	<div class="container-fluid">
-		<div class="col-md-12">
-	      <div class="alert alert-info" role="alert">
-	        <center>Um bibliographische Informationen zu den einzelnen Einträgen zu erhalten, bitte die Maus über die Signatur bewegen.</center> 
-	      </div>
-				<table id="sortableTable" class="table table-striped">
-					<thead>
-						<tr>
-							<th>Signatur </th>
-							<th>Protokoll </th>
-							<th>Anzahl Vormerkungen</th>
-							<th>Anzahl Ausleihen</th>
-							<th>Anzahl Exemplare </th>
-							<th>Anzahl ausl. Exemplare </th>
-							<th>Quotient </th>
-							<th>Dauer </th>
-						</tr>
-					</thead>
-					<tbody>
-						<xsl:apply-templates select="nRequest"/>
-					</tbody>
-				</table>
-		</div>
-		</div>
+		<table id="sortableTable" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Signatur </th>
+					<th>Protokoll </th>
+					<th>Anzahl Vormerkungen</th>
+					<th>Anzahl Ausleihen</th>
+					<th>Anzahl Exemplare </th>
+					<th>Anzahl ausl. Exemplare </th>
+					<th>Quotient </th>
+					<th>Dauer </th>
+				</tr>
+			</thead>
+			<tbody>
+				<xsl:apply-templates select="nRequest" />
+			</tbody>
+		</table>
 	</xsl:template>
-	
+
 	<xsl:template match="nRequest">
-			<tr>
-				<xsl:variable name="shelfmark">
-					<xsl:value-of select="@callNo" />
-				</xsl:variable>
-				<xsl:variable name="docNumber">
-					<xsl:value-of select="@docNumber" />
-				</xsl:variable>
-				<td  data-toggle="tooltip">
+		<tr>
+			<xsl:variable name="shelfmark">
+				<xsl:value-of select="@callNo" />
+			</xsl:variable>
+			<xsl:variable name="docNumber">
+				<xsl:value-of select="@docNumber" />
+			</xsl:variable>
+			<td data-toggle="tooltip">
 				<xsl:attribute name="title">
 				<xsl:value-of select="mab/." />
 				</xsl:attribute>
-					<xsl:value-of select="$shelfmark" />
-				</td>
-				<td>
-					<a
-						href="../.:/protokoll?shelfmark={$shelfmark}&amp;collections=&amp;exact="
-						target="popup">Link</a>
-				</td>
-				<td>
-					<xsl:apply-templates select="NRequests/." />
-				</td>
-				<td>
-					<xsl:apply-templates select="NLoans/." />
-				</td>
-				<td>
-					<xsl:value-of select="NItems/." />
-				</td>
-				<td>
-					<xsl:apply-templates select="NLendable/." />
-				</td>
-				<td>
-					<xsl:apply-templates select="ratio/." />
-				</td>
-				<td>
-					<xsl:value-of select="duration/." />
-				</td>
-			</tr>
+				<xsl:value-of select="$shelfmark" />
+			</td>
+			<td>
+				<a
+					href="../.:/protokoll?shelfmark={$shelfmark}&amp;collections=&amp;exact="
+					target="popup">Link</a>
+			</td>
+			<td>
+				<xsl:apply-templates select="NRequests/." />
+			</td>
+			<td>
+				<xsl:apply-templates select="NLoans/." />
+			</td>
+			<td>
+				<xsl:value-of select="NItems/." />
+			</td>
+			<td>
+				<xsl:apply-templates select="NLendable/." />
+			</td>
+			<td>
+				<xsl:apply-templates select="ratio/." />
+			</td>
+			<td>
+				<xsl:value-of select="duration/." />
+			</td>
+		</tr>
 	</xsl:template>
 
 

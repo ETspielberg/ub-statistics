@@ -77,13 +77,13 @@
 				<link rel="icon" href="{$WebApplicationBaseURL}img/favicon.ico" />
 			</head>
 			<body>
-				<xsl:apply-templates select="ignored/navbar" />
-				<xsl:apply-templates select="ignored" />
+				<xsl:apply-templates select="Ignored/navbar" />
+				<xsl:apply-templates select="Ignored" />
 			</body>
 		</html>
 	</xsl:template>
 
-	<xsl:template match="ignored">
+	<xsl:template match="Ignored">
 		<div class="container">
 			<div class="col-md-10 col-md-offset-1">
 				<h1>Werk von zukünftigen Analysen ausschließen</h1>

@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -140,6 +141,25 @@ public class JournalDAO {
         tx.begin();
         for (Journal journal : journals)
         	em.persist(journal);
+        tx.commit();
+        em.close();
+    }
+	
+	/**
+     * deletes all journals from the database
+     * 
+     * 
+     */
+    public static void deleteJournals() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sushiData");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaDelete<Journal> deleteJournals = cb.createCriteriaDelete(Journal.class);
+        Root<Journal> journals = deleteJournals.from(Journal.class);
+        deleteJournals.where(cb.like(journals.<String>get("zdbID"), "%"));
+        em.createQuery(deleteJournals).executeUpdate();
         tx.commit();
         em.close();
     }

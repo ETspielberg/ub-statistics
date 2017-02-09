@@ -104,7 +104,10 @@
 							Bereich
 						</th>
 						<th>
-							Aktiv?
+							Reader?
+						</th>
+						<th>
+							Alert?
 						</th>
 						<th>
 							Link
@@ -129,12 +132,25 @@
 		<xsl:variable name="performAlert">
 			<xsl:value-of select="performAlert/." />
 		</xsl:variable>
+		<xsl:variable name="performReader">
+			<xsl:value-of select="performReader/." />
+		</xsl:variable>
 		<tr>
 			<th>
 				<xsl:value-of select="name/." />
 			</th>
 			<th>
 				<xsl:value-of select="notationRange/." />
+			</th>
+			<th>
+				<xsl:choose>
+					<xsl:when test="$performReader = 'true'">
+						<xsl:text> X </xsl:text>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text> - </xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
 			</th>
 			<th>
 				<xsl:choose>
@@ -148,7 +164,7 @@
 			</th>
 			<th>
 				<a class="btn btn-sm btn-success"
-					href="{$WebApplicationBaseURL}fachref/hitlists/nRequests?readerControl={$alertControl}"
+					href="{$WebApplicationBaseURL}fachref/hitlists/hitlist?alertControl={$alertControl}"
 					role="button" target="popup">zur Hitliste</a>
 			</th>
 			<th>

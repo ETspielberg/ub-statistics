@@ -37,19 +37,25 @@
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
 								<li>
-									<a href="../fachref/start">Zurück</a>
+									<a href="../start">Zurück</a>
 								</li>
 							</ul>
 						</div><!--/.navbar-collapse -->
 					</div>
 				</nav>
+				<div class="jumbotron">
+				<div class="container">
+				<h1>Nutzereinstellungen</h1>
+				</div>
+				</div>
+				
     <xed:form method="post" xmlns:xed="http://www.mycore.de/xeditor" role="form" class="form-group">
     <xed:source uri="file:///{$ub.statistics.userDir}/{$username}/user_data.xml" />
 	<xed:cancel url="/fachref/start" />
 	  <xed:bind xpath="/user">
-	  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
-	      <h2 class="sub-header">Angaben zur Person</h2>
-	      <p> Diese Angaben werden unter anderem verwendet, um E-Mails mit Aussonderungs- oder Erwerbungsvorschlägen zu generieren.</p>
+	  <div class="container">
+	    <h2 class="sub-header">Angaben zur Person</h2>
+	    <p>Diese Angaben werden unter anderem verwendet, um E-Mails mit Aussonderungs- oder Erwerbungsvorschlägen zu generieren.</p>
 		<xed:bind xpath="details">
           <div class="col-md-12">
 		  <xed:bind xpath="fullname">
@@ -75,7 +81,10 @@
             </div>
           </xed:bind>
          </div>
-         <p> Die folgende Zeitangabe beschreibt den Zeitraum, nachdem ein einmal bearbeitetes Werk von einer weiteren Analyse ausgeschlossen ist.</p>
+         <h2 class="sub-header">Standardzeitraum</h2>
+         <div class="col-md-12"> 
+         <p> Die folgende Zeitangabe beschreibt den Zeitraum, in dem ein bereits bearbeitetes Werk von einer weiteren Analyse ausgeschlossen ist. Außerdem wird dieser Zeitraum verwendet, wenn Titel über den "Standard"-Button auf die Blacklist gesetzt werden.</p>
+		 </div>
 		<div class="col-md-12">
 		  <xed:bind xpath="interval" default="5">
             <div class="form-group">
@@ -89,8 +98,8 @@
           </xed:bind>
           </div>
 	    </xed:bind>
-		</div>
-	  <div class="col-sm-9 col-md-10 col-md-offset-1 main">
+	    </div>
+	  <div class="container">
 	    <h2 class="sub-header">Angaben zu Fächern</h2>
 	    <p> Bitte die eigenen Fächer und die Rolle (Referent oder Vertretung) auswählen. Mit Hilfe des Symbols "+" können Einträge hinzugefügt, mittels "-" Einträge entfernt werden. </p>
 	      <xed:bind xpath="subjects">
@@ -176,8 +185,6 @@
          </div>
 	   </div>
      </xed:bind>
-      
-      
     </xed:form>
   </body>
 </html>

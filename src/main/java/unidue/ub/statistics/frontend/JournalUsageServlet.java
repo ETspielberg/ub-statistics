@@ -39,7 +39,7 @@ public class JournalUsageServlet extends FachRefServlet {
     private static final Logger LOGGER = Logger.getLogger(JournalUsageServlet.class);
 
     /**
-     * reads the necessary document numbers from the http request, retrieves the documents from the cache and builds the corresponding JSON arrays.
+     * reads the necessary information from the http request, retrieves the data and builds the corresponding JSON arrays.
      *
      * @param job <code>MCRServletJob</code>
      * @exception IOException thrown upon the writing the result to the output
@@ -49,55 +49,57 @@ public class JournalUsageServlet extends FachRefServlet {
     protected void doGet(MCRServletJob job) throws ServletException, IOException, TransformerException, SAXException, JDOMException {
         HttpServletRequest req = job.getRequest();
 
-        Element output = prepareOutput(job,"usageAnalysis","journals","journalUsage");
+        Element output = prepareOutput(job, "usageAnalysis", "journals", "journalUsage");
 
         String friendlyName = (String) req.getSession().getAttribute("friendlyName");
         output.setAttribute("loggedInAs", friendlyName);
         issn = getParameter(job, "issn");
-
         if (!issn.isEmpty()) {
             output.addContent(new Element("issn").setText(issn));
-            String uri = "jop:genre=journal&sid=bib:ughe&pid=bibid%3DUGHE&issn=" + issn;
-            MCRXSL2XMLTransformer transformer = new MCRXSL2XMLTransformer("xsl/ezb2periods.xsl");
-            MCRContent jopResponse = MCRSourceContent.getInstance(uri);
-            Element data = transformer.transform(jopResponse).asXML().detachRootElement().clone();
-            List<Element> electronicSources = data.getChild("electronic").getChild("sources").getChildren("source");
-            List<Element> printSources = data.getChild("print").getChild("sources").getChildren("source");
-            JSONArray jsonRanges = new JSONArray();
-            JSONArray jsonCategories = new JSONArray();
-            JSONArray jsonDescription = new JSONArray();
+            String type = JournalTools.determineType(issn);
+            if (type.equals("issn")) {
+                String uri = "jop:genre=journal&sid=bib:ughe&pid=bibid%3DUGHE&issn=" + issn;
+                MCRXSL2XMLTransformer transformer = new MCRXSL2XMLTransformer("xsl/ezb2periods.xsl");
+                MCRContent jopResponse = MCRSourceContent.getInstance(uri);
+                Element data = transformer.transform(jopResponse).asXML().detachRootElement().clone();
+                List<Element> electronicSources = data.getChild("electronic").getChild("sources").getChildren("source");
+                List<Element> printSources = data.getChild("print").getChild("sources").getChildren("source");
+                JSONArray jsonRanges = new JSONArray();
+                JSONArray jsonCategories = new JSONArray();
+                JSONArray jsonDescription = new JSONArray();
 
-            for (Element source : electronicSources) {
-                JSONArray jsonElectronicRange = new JSONArray();
-                jsonDescription.put(source.getChild("period").getText());
-                Set<Integer> years = JournalTools.getAvailableYears(source.getChild("period").getText());
-                Iterator<Integer> iterator = years.iterator();
-                while (iterator.hasNext())
-                    jsonElectronicRange.put(iterator.next());
-                jsonRanges.put(jsonElectronicRange);
-                jsonCategories.put("elektronisch");
-            }
-            for (Element source : printSources) {
-                JSONArray jsonPrintRange = new JSONArray();
-                jsonDescription.put(source.getChild("period").getText());
-                Set<Integer> years = JournalTools.getAvailableYears(source.getChild("period").getText());
-                Iterator<Integer> iterator = years.iterator();
-                while (iterator.hasNext())
-                    jsonPrintRange.put(iterator.next());
-                jsonCategories.put("print");
-                jsonRanges.put(jsonPrintRange);
-            }
+                for (Element source : electronicSources) {
+                    JSONArray jsonElectronicRange = new JSONArray();
+                    jsonDescription.put(source.getChild("period").getText());
+                    Set<Integer> years = JournalTools.getAvailableYears(source.getChild("period").getText());
+                    Iterator<Integer> iterator = years.iterator();
+                    while (iterator.hasNext())
+                        jsonElectronicRange.put(iterator.next());
+                    jsonRanges.put(jsonElectronicRange);
+                    jsonCategories.put("elektronisch");
+                }
+                for (Element source : printSources) {
+                    JSONArray jsonPrintRange = new JSONArray();
+                    jsonDescription.put(source.getChild("period").getText());
+                    Set<Integer> years = JournalTools.getAvailableYears(source.getChild("period").getText());
+                    Iterator<Integer> iterator = years.iterator();
+                    while (iterator.hasNext())
+                        jsonPrintRange.put(iterator.next());
+                    jsonCategories.put("print");
+                    jsonRanges.put(jsonPrintRange);
+                }
 
-            Element json = new Element("json");
-            if (CounterDAO.getCounters(issn) != null) {
-                output.addContent(data.clone());
+                Element json = new Element("json");
+                if (CounterDAO.getCounters(issn) != null) {
+                    output.addContent(data.clone());
+                }
+                json.addContent(new Element("data").setText(jsonRanges.toString()));
+                json.addContent(new Element("description").setText(jsonDescription.toString()));
+                json.addContent(new Element("categories").setText(jsonCategories.toString()));
+                output.addContent(json);
             }
-            json.addContent(new Element("data").setText(jsonRanges.toString()));
-            json.addContent(new Element("description").setText(jsonDescription.toString()));
-            json.addContent(new Element("categories").setText(jsonCategories.toString()));
-            output.addContent(json);
         }
-        sendOutput(job,output);
+        sendOutput(job, output);
         LOGGER.info("done.");
     }
 

@@ -36,7 +36,7 @@ public class IgnoredDeleteServlet extends FachRefServlet {
         if (job.getRequest().isUserInRole("fachreferent")) {
             String identifier = job.getRequest().getParameter("identifier");
             IgnoredDAO.removeIgnored(identifier);
-            job.getResponse().sendRedirect("ignoredManagement");
+            job.getResponse().sendRedirect("blacklist");
         } else {
         Element output = new Element("error").addContent((new Element("message")).addContent("error.noPermission"));
         sendOutput(job,output);

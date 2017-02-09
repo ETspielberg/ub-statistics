@@ -65,11 +65,16 @@
 			</head>
 			<body>
 				<xsl:apply-templates select="publisherManagement/navbar" />
-				<div class="col-md-10 col-md-offset-1 main ">
-				<xsl:apply-templates select="publisherManagement" />
-				<div>
-				<a class="btn btn btn-primary" href="{$WebApplicationBaseURL}journals/PublisherDefine.html" role="button">Neues Profil erstellen</a>
+				<div class="jumbotron">
+				<div class="container">
+				<h1 >SUSHI Accounts</h1>
+				<p>Eingerichtete SUSHI-Provider.</p>
+				<p><a class="btn btn btn-primary" href="{$WebApplicationBaseURL}fachref/eMedia/PublisherDefine.html" role="button">Neues Profil erstellen</a>
+				</p>
 				</div>
+				</div>
+				<div class="container">
+				<xsl:apply-templates select="publisherManagement" />
 				</div>
 				<script src="{$WebApplicationBaseURL}js/bootstrap.min.js"/>
 			</body>
@@ -78,7 +83,7 @@
 
 	<xsl:template match="publisherManagement">
 		<xsl:if test="count(publisher) &gt; 0">
-		<h2 class="sub-header">Eingerichtete SUSHI Accounts</h2>
+		
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
@@ -131,7 +136,7 @@
 				<xsl:value-of select="sushiCustomerReferenceID/." />
 			</th>
 			<th>
-				<a class="btn btn-sm btn-success" href="{$WebApplicationBaseURL}eMedia/publisherDelete?name={$name}"
+				<a class="btn btn-sm btn-success" href="{$WebApplicationBaseURL}fachref/eMedia/publisherDelete?name={$name}"
 					role="button">Löschen</a>
 			</th>
 		</tr>

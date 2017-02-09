@@ -68,21 +68,18 @@
 	<xsl:template match="ignoredManagement">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Blackliste</h1>
+				<h1>Blacklist</h1>
 				<p>Diese Titel sind von der weiteren Analyse und Aussonderung
 					ausgeschlossen:</p>
 			</div>
 		</div>
 		<xsl:choose>
 			<xsl:when test="count(/ignoredManagement/ignored) &gt; 0">
-
+			<div class="container">
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>
-									Art
-								</th>
 								<th>
 									Systemkennung / Grundsignatur
 								</th>
@@ -108,9 +105,12 @@
 						</tbody>
 					</table>
 				</div>
+			</div>
 			</xsl:when>
 			<xsl:otherwise>
+			<div class="container">
 				Es wurden keine Einträge auf der Blacklist gefunden.
+			</div>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -122,9 +122,6 @@
 		</xsl:variable>
 
 		<tr>
-			<th>
-				<xsl:value-of select="i18n:translate(type/.)" />
-			</th>
 			<th>
 				<xsl:value-of select="identifier/." />
 			</th>

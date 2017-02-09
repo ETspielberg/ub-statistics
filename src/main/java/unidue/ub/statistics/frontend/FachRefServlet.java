@@ -47,10 +47,8 @@ public class FachRefServlet extends MCRServlet{
 	    Element output = new Element(outputName);
 	    Element navbar = new Element("navbar");
 	    org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();
-        if (currentUser.hasRole("fachreferent")) {
-            String friendlyName = (String) job.getRequest().getSession().getAttribute("friendlyName");
-            navbar.addContent(new Element("loggedInAs").setText(friendlyName));
-        }
+        String friendlyName = (String) job.getRequest().getSession().getAttribute("friendlyName");
+        navbar.addContent(new Element("loggedInAs").setText(friendlyName));
         if (currentUser.hasRole("userAdmin"))
             navbar.addContent(new Element("admin").setText("true"));
         navbar.addContent(new Element("now").setText(String.valueOf(System.currentTimeMillis())));

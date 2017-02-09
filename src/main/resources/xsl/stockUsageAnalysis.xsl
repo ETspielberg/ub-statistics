@@ -54,83 +54,80 @@
 			</head>
 			<body>
 				<xsl:apply-templates select="stockUsageAnalysis/navbar" />
-				<div class="jumbotron">
-					<div class="container">
-						<h1>Bestand</h1>
-						<p>Übersicht über Zusammensetzung von Bestadn und Ausleihen</p>
-					</div>
-				</div>
-				<div class="container">
-					<xsl:apply-templates select="stockUsageAnalysis" />
-				</div>
+				<xsl:apply-templates select="stockUsageAnalysis" />
 				<script src="{$WebApplicationBaseURL}js/bootstrap.min.js" />
 			</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="stockUsageAnalysis">
-		<div class="col-sm-2 col-md-1 sidebar">
-			<ul class="nav nav-sidebar">
-				<li>
-					<b>Bereich: </b>
-					<br />
-					<xsl:value-of select="topLevel/range" />
-				</li>
-				<li>
-					<b>Name: </b>
-					<br />
-					<xsl:value-of select="topLevel/bez" />
-				</li>
-				<li>
-					<b>Gesamtanzahl: </b>
-					<br />
-					<xsl:value-of select="topLevel/actualTotalNumberOfItems/." />
-				</li>
-				<li>
-					<b>Mittlere Ausleihe: </b>
-					<br />
-					<xsl:choose>
-						<xsl:when test='topLevel/dayStockLendableTotal/.=0'>
-							0
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of
-								select='format-number((topLevel/daysLoanedTotal/. div topLevel/dayStockLendableTotal/.),"#0.0%")' />
-						</xsl:otherwise>
-					</xsl:choose>
-				</li>
-				<li>
-					<b>Durchschnittl. Exemplarzahl </b>
-					<br />
-					<xsl:choose>
-						<xsl:when test='topLevel/dayStockLendableTotal/.=0'>
-							0
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of
-								select='format-number((number(topLevel/actualTotalNumberOfItems/.) div number(topLevel/actualTotalNumberOfWorks/.)),"#0.0")' />
-						</xsl:otherwise>
-					</xsl:choose>
-				</li>
-			</ul>
+		<div class="container-fluid main">
+			<div class="col-sm-2 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li>
+						<b>Bereich: </b>
+						<br />
+						<xsl:value-of select="topLevel/range" />
+					</li>
+					<li>
+						<b>Name: </b>
+						<br />
+						<xsl:value-of select="topLevel/bez" />
+					</li>
+					<li>
+						<b>Gesamtanzahl: </b>
+						<br />
+						<xsl:value-of select="topLevel/actualTotalNumberOfItems/." />
+					</li>
+					<li>
+						<b>Mittlere Ausleihe: </b>
+						<br />
+						<xsl:choose>
+							<xsl:when test='topLevel/dayStockLendableTotal/.=0'>
+								0
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of
+									select='format-number((topLevel/daysLoanedTotal/. div topLevel/dayStockLendableTotal/.),"#0.0%")' />
+							</xsl:otherwise>
+						</xsl:choose>
+					</li>
+					<li>
+						<b>Durchschnittl. Exemplarzahl </b>
+						<br />
+						<xsl:choose>
+							<xsl:when test='topLevel/dayStockLendableTotal/.=0'>
+								0
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of
+									select='format-number((number(topLevel/actualTotalNumberOfItems/.) div number(topLevel/actualTotalNumberOfWorks/.)),"#0.0")' />
+							</xsl:otherwise>
+						</xsl:choose>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-10 col-md-offset-2 main">
+				<h1>Bestand</h1>
+				<p>Übersicht über Zusammensetzung von Bestand und Ausleihen</p>
+				<xsl:apply-templates select="json" />
+			</div>
+
 		</div>
-		<xsl:apply-templates select="json" />
 	</xsl:template>
 
 	<xsl:template match="json">
-		<div class="col-md-10 col-md-offset-2 main">
-			<div class="col-md-6">
-				<div id="mittlereAusleihe" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
-			</div>
-			<div class="col-md-6">
-				<div id="ausleihen" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
-			</div>
-			<div class="col-md-6">
-				<div id="zusammensetzung" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
-			</div>
-			<div class="col-md-6">
-				<div id="bestand" style="min-width: 310px; max-width: 100%; ; margin: 0 auto" />
-			</div>
+		<div class="col-md-6">
+			<div id="mittlereAusleihe" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
+		</div>
+		<div class="col-md-6">
+			<div id="ausleihen" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
+		</div>
+		<div class="col-md-6">
+			<div id="zusammensetzung" style="min-width: 310px; max-width: 100%;  margin: 0 auto" />
+		</div>
+		<div class="col-md-6">
+			<div id="bestand" style="min-width: 310px; max-width: 100%; ; margin: 0 auto" />
 		</div>
 
 
@@ -138,14 +135,16 @@
 			jQuery(function () {
 			jQuery('#bestand').highcharts({
 			chart: {
-			type: 'column',
+			type:
+			'column',
 			zoomType: 'xy',
 			height: 500
 			},
 			title: {
 			text: 'Bestand'
 			},
-			xAxis: {
+			xAxis:
+			{
 			categories:
 			<xsl:value-of select="stellen" />
 			},
@@ -193,7 +192,8 @@
 			height: 500
 			},
 			title: {
-			text: 'Mittlere Ausleihe'
+			text:
+			'Mittlere Ausleihe'
 			},
 			xAxis: {
 			categories:
@@ -213,7 +213,8 @@
 			stacking: 'normal'
 			}
 			},
-			series: [{
+			series:
+			[{
 			name: 'Mittlere Ausleihe in %',
 			data:
 			<xsl:value-of select="meanRelativeLoan" />
@@ -236,7 +237,8 @@
 			height: 500
 			},
 			title: {
-			text: 'Zusammensetzung der Ausleihen'
+			text:
+			'Zusammensetzung der Ausleihen'
 			},
 			xAxis: {
 			categories:
@@ -257,7 +259,8 @@
 			}
 
 			},
-			series: [{
+			series:
+			[{
 			name: 'Studenten',
 			data:
 			<xsl:value-of select="daysLoanedStudents" />
@@ -328,7 +331,8 @@
 			height: 500
 			},
 			title: {
-			text: 'Zusammensetzung des Bestandes'
+			text:
+			'Zusammensetzung des Bestandes'
 			},
 			xAxis: {
 			categories:
@@ -349,7 +353,8 @@
 			}
 
 			},
-			series: [{
+			series:
+			[{
 			name: 'LBS',
 			data:
 			<xsl:value-of select="daysStockLBS" />

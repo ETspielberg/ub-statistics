@@ -49,7 +49,7 @@ public class NRequestsCollector extends FachRefServlet implements Job {
 	protected void doGetPost(MCRServletJob job) throws Exception {
 		HttpServletRequest req = job.getRequest();
 
-		Element output = prepareOutput(job,"nRequests","hitlists","completehitlist");
+		Element output = prepareOutput(job,"nRequests","hitlists","completeHitlist");
 		output.setAttribute("now", String.valueOf(System.currentTimeMillis()));
 		
 		org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();

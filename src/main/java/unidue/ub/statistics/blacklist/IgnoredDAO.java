@@ -57,13 +57,19 @@ public class IgnoredDAO {
         }
 	}
     
+    /**
+     * returns a list of all <code>Ignored</code> objects in the database
+     * 
+     * 
+     * @return the list of all <code>Ignored</code> objects in the database
+     */
     public static List<Ignored> listIgnored() {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("tools");
     EntityManager em = emf.createEntityManager();
     CriteriaBuilder cb = em.getCriteriaBuilder();
     CriteriaQuery<Ignored> q = cb.createQuery(Ignored.class);
     Root<Ignored> c = q.from(Ignored.class);
-    q.select(c).where(cb.equal(c.get("who"), "%"));
+    q.select(c).where(cb.like(c.<String>get("who"), "%"));
     return em.createQuery(q).getResultList();
     }
 	
