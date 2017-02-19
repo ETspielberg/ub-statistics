@@ -4,11 +4,13 @@ unidue.ub.statistics.alephConnector
 unidue.ub.statistics.alert
 unidue.ub.statistics.analysis
 unidue.ub.statistics.blacklist
+unidue.ub.statistics.connector
 unidue.ub.statistics.csvHandling
 unidue.ub.statistics.eUsage
 unidue.ub.statistics.eUsage.sushi
 unidue.ub.statistics.frontend
 unidue.ub.statistics.help
+unidue.ub.statistics.maps
 unidue.ub.statistics.media.journal
 unidue.ub.statistics.media.monographs
 unidue.ub.statistics.resolver
